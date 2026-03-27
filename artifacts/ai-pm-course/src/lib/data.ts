@@ -3,20 +3,88 @@
 // ============================================================
 
 export const COURSE_PHASES = [
-  { id: "p1", title: "Phase 1: Foundations", weeks: ["w1", "w2"] },
-  { id: "p2", title: "Phase 2: Product Design", weeks: ["w3", "w4", "w5"] },
-  { id: "p3", title: "Phase 3: Building", weeks: ["w6", "w7", "w8"] },
-  { id: "p4", title: "Phase 4: Scaling", weeks: ["w9", "w10", "w11"] },
-  { id: "p5", title: "Phase 5: Capstone", weeks: ["w12"] },
+  { id: "p1", title: "Phase 1: Foundations & AI Thinking", emoji: "🚀", weeks: ["w1", "w2"] },
+  { id: "p2", title: "Phase 2: AI Product Design", emoji: "🏗️", weeks: ["w3", "w4", "w5"] },
+  { id: "p3", title: "Phase 3: Building with AI", emoji: "⚙️", weeks: ["w6", "w7", "w8"] },
+  { id: "p4", title: "Phase 4: Scaling & Mastery", emoji: "📊", weeks: ["w9", "w10", "w11"] },
+  { id: "p5", title: "Phase 5: Capstone & Career", emoji: "🏁", weeks: ["w12"] },
+];
+
+export const BONUS_MODULES = [
+  {
+    id: "b1",
+    emoji: "🔮",
+    title: "Future of AI",
+    description: "Agents, multimodal systems, and autonomous workflows. Where AI products are headed in the next 2 years.",
+    topics: ["AI Agents & Tool Use", "Multimodal Systems (Vision, Audio, Code)", "Autonomous Workflows", "The Post-LLM Era"],
+    level: "Advanced",
+  },
+  {
+    id: "b2",
+    emoji: "🧠",
+    title: "AI PM Playbooks",
+    description: "Battle-tested frameworks you can use immediately. Decision trees, checklists, and templates for common PM decisions.",
+    topics: ["RAG vs Fine-tune Decision Tree", "AI Feature Launch Checklist", "Eval Design Templates", "Stakeholder Communication Scripts"],
+    level: "Intermediate",
+  },
+  {
+    id: "b3",
+    emoji: "⚠️",
+    title: "AI Failure Modes",
+    description: "The 10 most common ways AI projects fail — and how to catch them before shipping.",
+    topics: ["Over-trusting AI Output", "Poor Eval Design", "Misaligned UX Expectations", "Technical Debt in AI Systems"],
+    level: "Essential",
+  },
+];
+
+export const CAPSTONE_OPTIONS = [
+  {
+    id: "c1",
+    icon: "🤖",
+    title: "AI Recruiter Assistant",
+    description: "Build an AI that screens, ranks, and summarizes candidates — with bias guardrails and hiring manager review workflow.",
+    skills: ["RAG", "Structured Output", "Evals", "Bias Detection"],
+    difficulty: "Intermediate",
+  },
+  {
+    id: "c2",
+    icon: "📚",
+    title: "AI Study Companion",
+    description: "A personalized tutor that adapts content difficulty, generates practice questions, and tracks learning gaps.",
+    skills: ["Personalization", "Memory", "LLM UX", "Progress Tracking"],
+    difficulty: "Beginner",
+  },
+  {
+    id: "c3",
+    icon: "⚡",
+    title: "AI Workflow Automation",
+    description: "An agent that handles multi-step business processes — from email triage to report generation to task routing.",
+    skills: ["Agents", "Tool Use", "Orchestration", "Error Handling"],
+    difficulty: "Advanced",
+  },
+  {
+    id: "c4",
+    icon: "💡",
+    title: "AI SaaS Feature",
+    description: "Add a high-impact AI feature to an existing product — summarization, smart search, or generative content.",
+    skills: ["Embeddings", "Vector Search", "Prompt Engineering", "A/B Testing"],
+    difficulty: "Intermediate",
+  },
 ];
 
 export const COURSE_WEEKS: Record<string, any> = {
   "w1": {
-    id: "w1", title: "Week 1: Intro to AI & LLMs",
-    description: "Understand the fundamental shift from traditional software to AI products and why it changes everything about how PMs work.",
-    lessons: ["l1", "l2", "l3"],
-    objectives: ["Explain what AI is in simple, non-jargon terms", "Describe how Large Language Models actually work", "Articulate the difference between traditional and AI software for stakeholders"],
-    assignment: "Write a 200-word 'AI Explainer' for a hypothetical stakeholder who has never used ChatGPT. Avoid all jargon.",
+    id: "w1", title: "Week 1: AI Fundamentals for PMs",
+    description: "Understand what AI, ML, and LLMs actually are — no jargon, no hype. Master the mental models every PM needs before building anything.",
+    lessons: ["l1", "l2", "l3", "l3b"],
+    objectives: [
+      "Explain what AI is in simple, non-jargon terms to any stakeholder",
+      "Describe how Large Language Models actually work at an intuitive level",
+      "Articulate the difference between traditional and AI software",
+      "Map the key capabilities and limitations of AI systems today",
+    ],
+    assignment: "Break down 3 products you use daily: identify which components are AI-powered, which are traditional software, and what the key limitations of each AI component are.",
+    keyConceptsLabel: "Tokens, context window, hallucination, deterministic vs probabilistic systems",
     resources: [
       { title: "What is ChatGPT? — OpenAI", url: "https://openai.com/chatgpt", type: "Official Docs" },
       { title: "Attention Is All You Need (Transformer Paper)", url: "https://arxiv.org/abs/1706.03762", type: "Paper" },
@@ -25,23 +93,36 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w2": {
-    id: "w2", title: "Week 2: The AI Product Lifecycle",
-    description: "How building AI products fundamentally differs from traditional agile — discovery, experimentation, evaluation, and iteration.",
+    id: "w2", title: "Week 2: Problem Framing for AI",
+    description: "Most AI projects fail not because of bad engineering, but because of bad problem framing. Learn to identify AI-worthy problems and translate them into solvable tasks.",
     lessons: ["l4a", "l4b", "l4c"],
-    objectives: ["Map the AI product lifecycle from ideation to post-launch monitoring", "Identify where AI projects fail and why", "Design a 2-week AI experimentation sprint"],
-    assignment: "Create a simple lifecycle diagram for an AI feature you'd want to build at your current or past company. Annotate each stage with the key question you'd answer.",
+    objectives: [
+      "Identify which problems are genuinely worth solving with AI",
+      "Convert real-world problems into classification, prediction, or generation tasks",
+      "Apply the AI feasibility checklist and ROI vs complexity matrix",
+      "Confidently argue when NOT to use AI",
+    ],
+    assignment: "Pick a real-world problem at your company or a product you know well. Frame it as an AI problem: define the task type (classification/prediction/generation), estimate the feasibility score, and plot it on the ROI vs complexity matrix.",
+    keyConceptsLabel: "AI feasibility checklist, ROI vs complexity matrix, problem decomposition",
     resources: [
       { title: "The ML Product Lifecycle — Google", url: "https://developers.google.com/machine-learning/guides/rules-of-ml", type: "Guide" },
-      { title: "AI Product Failure Modes — a16z", url: "https://a16z.com/ai-canon/", type: "Article" },
+      { title: "AI Canon — a16z Comprehensive Reading List", url: "https://a16z.com/ai-canon/", type: "Article" },
       { title: "Managing the AI Product — Reforge", url: "https://www.reforge.com/", type: "Framework" },
+      { title: "Rules of Machine Learning — Google", url: "https://developers.google.com/machine-learning/guides/rules-of-ml", type: "Guide" },
     ]
   },
   "w3": {
     id: "w3", title: "Week 3: AI Product Strategy",
-    description: "How to find AI-native opportunities, avoid building AI for its own sake, and learn from the biggest AI launches in history.",
+    description: "How to find AI-native opportunities, avoid building AI for its own sake, and learn from the biggest AI launches ever — ChatGPT, Notion AI, and more.",
     lessons: ["l5", "l6", "l6b"],
-    objectives: ["Apply the 'AI Problem-Solution Fit' framework", "Identify when AI adds 10x vs 1.1x value", "Deconstruct why ChatGPT became the fastest-growing product in history"],
-    assignment: "Apply the AI Problem Framing template (found in Templates) to a real problem at your company or a product you use daily.",
+    objectives: [
+      "Distinguish AI-native products from AI-enabled features and know when each is right",
+      "Build defensibility and a wedge strategy for an AI product",
+      "Apply the 'AI Problem-Solution Fit' framework to your own product ideas",
+      "Deconstruct the strategies behind ChatGPT, Notion AI, and Copilot",
+    ],
+    assignment: "Design a 1-page AI product strategy for a startup idea of your choice. Include: the problem, AI wedge, defensibility moat, and the metric you'd obsess over in year 1.",
+    keyConceptsLabel: "AI-native vs AI-enabled, defensibility, data flywheel, wedge strategy",
     resources: [
       { title: "The AI Product Strategy Playbook — Lenny's Newsletter", url: "https://www.lennysnewsletter.com/", type: "Newsletter" },
       { title: "Sequoia Capital AI Framework", url: "https://www.sequoiacap.com/article/ai-powered-products/", type: "Framework" },
@@ -49,11 +130,17 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w4": {
-    id: "w4", title: "Week 4: Designing AI Experiences",
-    description: "UX/UI principles specific to generative AI — handling non-determinism, building trust, and creating transparent AI interactions.",
+    id: "w4", title: "Week 4: AI UX & Interaction Design",
+    description: "Designing for AI is fundamentally different from traditional UX. Learn to handle uncertainty, design for trust, and build interfaces where AI and humans collaborate naturally.",
     lessons: ["l7", "l7b", "l7c"],
-    objectives: ["Apply the 4 AI UX anti-patterns and how to avoid them", "Design AI interactions that build rather than erode user trust", "Prototype a 'graceful degradation' flow for when AI fails"],
-    assignment: "Audit any AI product you use (Copilot, Notion AI, Grammarly). Write 3 UX improvements using the principles from this week.",
+    objectives: [
+      "Design AI interactions that build rather than erode user trust",
+      "Apply the 4 core AI UX principles: uncertainty, transparency, control, and feedback",
+      "Choose between conversational and structured UI for different AI use cases",
+      "Prototype human-in-the-loop flows with editable AI outputs",
+    ],
+    assignment: "Audit any AI product you use (GitHub Copilot, Notion AI, Grammarly, or similar). Write a 3-improvement critique using this week's AI UX principles, with wireframe sketches for each.",
+    keyConceptsLabel: "Human-in-the-loop, editable outputs, confidence indicators, prompt UX, graceful degradation",
     resources: [
       { title: "Google PAIR AI UX Guidelines", url: "https://pair.withgoogle.com/guidebook/", type: "Guide" },
       { title: "Designing AI Products — Nielsen Norman Group", url: "https://www.nngroup.com/articles/ai-ux/", type: "Article" },
@@ -61,35 +148,55 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w5": {
-    id: "w5", title: "Week 5: RAG Architecture Explained",
-    description: "The most important AI architecture for enterprise PMs. Understand how RAG works, when to use it, and how to spec it for your engineering team.",
+    id: "w5", title: "Week 5: AI Product Architecture",
+    description: "You don't need to code, but you must understand the architecture. RAG, fine-tuning, agents, and workflows — explained intuitively so you can make real technical decisions.",
     lessons: ["l8", "l8b"],
-    objectives: ["Explain RAG to a non-technical executive in under 2 minutes", "Write acceptance criteria for a RAG-based feature", "Compare RAG vs fine-tuning trade-offs for 3 different use cases"],
-    assignment: "Write a 1-page technical brief: 'Should we use RAG or fine-tuning for [your use case]?' Use the decision tree in the Templates section.",
+    objectives: [
+      "Explain LLM app architecture end-to-end to an engineering team",
+      "Decide between RAG, fine-tuning, and prompting for any given use case",
+      "Understand how agents and AI workflows differ from standard LLM calls",
+      "Draw and spec the architecture for your capstone product",
+    ],
+    assignment: "Draw the full system architecture for your capstone product. Label each component, the data flow between them, and document 3 critical decision points with your rationale.",
+    keyConceptsLabel: "RAG, fine-tuning, embeddings, vector databases, agents, tool calling, orchestration",
     resources: [
       { title: "RAG Paper: Lewis et al. (2020)", url: "https://arxiv.org/abs/2005.11401", type: "Paper" },
       { title: "LlamaIndex RAG Guide", url: "https://docs.llamaindex.ai/", type: "Docs" },
+      { title: "LangChain Agents Documentation", url: "https://python.langchain.com/docs/concepts/agents/", type: "Docs" },
       { title: "Pinecone RAG Tutorial", url: "https://www.pinecone.io/learn/retrieval-augmented-generation/", type: "Tutorial" },
     ]
   },
   "w6": {
-    id: "w6", title: "Week 6: Prompt Engineering for PMs",
-    description: "Prompts are the new spec. Learn to write system prompts that shape AI behavior, chain prompts for complex tasks, and version-control your prompt library.",
+    id: "w6", title: "Week 6: AI Tech Stack for PMs",
+    description: "The full modern AI tech stack — from foundation models to vector databases — explained from a PM's perspective. Know what everything does and why your team chose it.",
     lessons: ["l9", "l9b", "l9c"],
-    objectives: ["Write a production-quality system prompt for a customer-facing AI feature", "Apply chain-of-thought and few-shot techniques", "Build a prompt testing methodology for your team"],
-    assignment: "Build a prompt library for 3 use cases at your company: a customer support bot, an internal summarizer, and a sales email assistant.",
+    objectives: [
+      "Compare OpenAI API, open-source models, and self-hosted options with clear trade-offs",
+      "Explain embeddings and vector search to a non-technical stakeholder",
+      "Make informed decisions on cost vs latency vs quality for your product",
+      "Build a justified tech stack recommendation for any AI product",
+    ],
+    assignment: "Choose and justify the tech stack for your capstone product. For each component (model, database, framework, hosting), document: what you chose, why, and what you're trading off.",
+    keyConceptsLabel: "OpenAI API, Hugging Face, embeddings, vector search, LangChain, latency, cost",
     resources: [
       { title: "Anthropic Prompt Engineering Guide", url: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", type: "Official" },
-      { title: "OpenAI Prompt Engineering Guide", url: "https://platform.openai.com/docs/guides/prompt-engineering", type: "Official" },
-      { title: "Prompt Engineering for LLMs — Coursera", url: "https://www.coursera.org/learn/prompt-engineering", type: "Course" },
+      { title: "OpenAI API Documentation", url: "https://platform.openai.com/docs/", type: "Official" },
+      { title: "Hugging Face Model Hub", url: "https://huggingface.co/models", type: "Tool" },
+      { title: "Prompt Engineering Guide — DAIR.AI", url: "https://www.promptingguide.ai/", type: "Guide" },
     ]
   },
   "w7": {
-    id: "w7", title: "Week 7: Build Your First AI Product",
-    description: "A step-by-step guide to building a working AI chatbot — understanding every component in the stack, what breaks, and how to ship it.",
+    id: "w7", title: "Week 7: Prototyping & Building",
+    description: "From prompt engineering to working MVP — learn the fastest paths to a shippable AI product. No-code, low-code, and code approaches all covered.",
     lessons: ["l10", "l10b"],
-    objectives: ["Map the full technical architecture of an AI chatbot", "Identify the 3 most common failure points in production chatbots", "Write a PRD for an AI feature including technical constraints"],
-    assignment: "Write the full technical PRD for a RAG-based internal knowledge bot for your team. Include architecture, data sources, evaluation plan, and guardrails.",
+    objectives: [
+      "Master prompt engineering fundamentals including system prompts, few-shot, and chain-of-thought",
+      "Build a working AI chatbot or AI feature inside an app using no-code + code approaches",
+      "Write a complete PRD for your AI MVP including technical constraints",
+      "Identify the 3 most common failure points in production AI and how to prevent them",
+    ],
+    assignment: "Build MVP v1 of your capstone product. It can be a Cursor-built prototype, a no-code tool, or an API integration. What matters is that it works — document what you learned.",
+    keyConceptsLabel: "Prompt engineering, system prompts, few-shot learning, chain-of-thought, rapid prototyping",
     resources: [
       { title: "Build a Chatbot with LangChain — Official Docs", url: "https://python.langchain.com/docs/use_cases/chatbots/", type: "Tutorial" },
       { title: "Vercel AI SDK Guide", url: "https://sdk.vercel.ai/docs", type: "Docs" },
@@ -97,23 +204,35 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w8": {
-    id: "w8", title: "Week 8: Fine-tuning vs RAG",
-    description: "The architectural decision that will define your AI product's cost, performance, and maintenance burden for years. Get this right.",
+    id: "w8", title: "Week 8: AI Experimentation & Iteration",
+    description: "AI products improve through disciplined iteration — not guessing. Learn to run prompt A/B tests, design human feedback loops, and build a culture of eval-driven development.",
     lessons: ["l11", "l11b"],
-    objectives: ["Complete the Fine-tune vs RAG decision framework for any use case", "Estimate the cost and timeline for each approach", "Define the data requirements for fine-tuning"],
-    assignment: "For your capstone product, write a 2-paragraph architectural decision: Which approach will you use and why? What are the trade-offs you're accepting?",
+    objectives: [
+      "Run structured prompt iteration loops that actually improve output quality",
+      "Design A/B tests for AI outputs that are statistically meaningful",
+      "Build human feedback collection into your product's core loop",
+      "Improve your MVP using prompt tuning and user feedback signals",
+    ],
+    assignment: "Take your capstone MVP and run one full improvement cycle: identify one weak output, design 3 prompt variations, test them, collect feedback, and document what you learned.",
+    keyConceptsLabel: "Prompt iteration, A/B testing, RLHF, human-in-the-loop, feedback loops, evals",
     resources: [
       { title: "OpenAI Fine-tuning Guide", url: "https://platform.openai.com/docs/guides/fine-tuning", type: "Official" },
       { title: "When to Fine-tune vs RAG — Cohere", url: "https://cohere.com/blog/rag-fine-tuning", type: "Article" },
-      { title: "LLM Fine-tuning Cost Calculator", url: "https://openai.com/api/pricing/", type: "Tool" },
+      { title: "RLHF Explained — Hugging Face", url: "https://huggingface.co/blog/rlhf", type: "Article" },
     ]
   },
   "w9": {
-    id: "w9", title: "Week 9: AI Metrics & Evals",
-    description: "The hardest part of AI PM work: measuring success for non-deterministic systems. Build eval frameworks that engineering and business leaders both trust.",
+    id: "w9", title: "Week 9: AI Metrics & Evaluation",
+    description: "Traditional metrics don't work for non-deterministic systems. Learn to design eval frameworks that measure what actually matters — and that business leaders actually trust.",
     lessons: ["l12", "l12b"],
-    objectives: ["Design a Golden Dataset for your AI feature", "Calculate meaningful AI accuracy metrics (precision, recall, BLEU, LLM-as-judge)", "Build an eval dashboard proposal for stakeholders"],
-    assignment: "Design an eval plan for your capstone AI product. Include: 5 test cases, the metric you'd track, what 'good enough' looks like, and who signs off.",
+    objectives: [
+      "Explain why traditional product metrics fail for AI and what to use instead",
+      "Design a Golden Dataset and calculate accuracy, hallucination rate, latency, and cost per output",
+      "Build offline and online eval systems for your product",
+      "Design a human evaluation system for complex, subjective AI tasks",
+    ],
+    assignment: "Create a complete eval framework for your capstone product: define 5 test cases, pick your primary metric, set a 'good enough' threshold, and specify who signs off on quality.",
+    keyConceptsLabel: "Accuracy, hallucination rate, latency, cost per output, offline vs online evals, LLM-as-judge",
     resources: [
       { title: "RAGAS: Automated Evaluation for RAG", url: "https://github.com/explodinggradients/ragas", type: "Tool" },
       { title: "Evals are Underrated — OpenAI Cookbook", url: "https://cookbook.openai.com/examples/evaluation/", type: "Guide" },
@@ -121,11 +240,17 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w10": {
-    id: "w10", title: "Week 10: AI Guardrails & Safety",
-    description: "Every AI feature ships with risk. Learn to systematically identify, mitigate, and monitor for harms — and how to talk about it with legal and leadership.",
+    id: "w10", title: "Week 10: Guardrails & Responsible AI",
+    description: "Every AI feature ships with real risk. Build systematic guardrails against prompt injection, bias, privacy violations, and harmful outputs — before launch, not after.",
     lessons: ["l13", "l13b"],
-    objectives: ["Complete an AI risk matrix for your product", "Design input/output filters for your feature", "Write an AI safety brief for legal review"],
-    assignment: "Using the AI Safety Audit template, complete a risk matrix for your capstone product. Identify your 3 highest risks and propose mitigations.",
+    objectives: [
+      "Identify and mitigate prompt injection and jailbreak vulnerabilities in your product",
+      "Design moderation pipelines and multi-layer safety systems",
+      "Apply bias and fairness frameworks to AI feature decisions",
+      "Navigate privacy and compliance requirements (GDPR, EU AI Act) for AI products",
+    ],
+    assignment: "Using the AI Safety Audit template, complete a full risk matrix for your capstone product. Identify your 3 highest risks, map the attack vectors, and propose specific mitigations for each.",
+    keyConceptsLabel: "Prompt injection, jailbreaks, bias detection, moderation pipelines, safety layers, compliance",
     resources: [
       { title: "NIST AI Risk Management Framework", url: "https://airc.nist.gov/Home", type: "Framework" },
       { title: "Anthropic's Constitutional AI", url: "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback", type: "Research" },
@@ -134,26 +259,39 @@ export const COURSE_WEEKS: Record<string, any> = {
     ]
   },
   "w11": {
-    id: "w11", title: "Week 11: Go-to-Market for AI",
-    description: "Pricing, positioning, and launching AI features. The GTM playbook for AI is fundamentally different from traditional software — learn what works.",
+    id: "w11", title: "Week 11: Business, Scaling & Lifecycle",
+    description: "How AI products make money, scale, and break in production. Understand unit economics, the data flywheel, model drift, and the lifecycle decisions that define AI company success.",
     lessons: ["l14", "l14b"],
-    objectives: ["Apply 3 AI-specific pricing models to your product", "Write positioning copy that explains AI value without hype", "Design a phased rollout plan for an AI feature"],
-    assignment: "Draft the 1-page GTM brief for your capstone product: positioning, pricing, launch sequence, and the metric that defines launch success.",
+    objectives: [
+      "Apply 3 AI-specific pricing models (token-based, outcome-based, seat-based) to your product",
+      "Model the unit economics of an AI feature including cost per inference",
+      "Design a data flywheel that compounds your product's quality advantage over time",
+      "Build a monitoring plan for model drift, quality degradation, and cost spikes",
+    ],
+    assignment: "Define the complete monetization and scaling plan for your capstone: pricing model, CAC/LTV estimate, infrastructure scaling approach, and the data flywheel strategy.",
+    keyConceptsLabel: "AI pricing models, unit economics, data flywheel, model drift, feedback loops, scaling challenges",
     resources: [
       { title: "AI Pricing Strategy — a16z", url: "https://a16z.com/ai-pricing/", type: "Article" },
       { title: "How to Position AI Features — April Dunford", url: "https://www.aprildunford.com/", type: "Framework" },
-      { title: "Stripe Revenue Optimization for AI — Stripe Sessions", url: "https://stripe.com/sessions", type: "Talk" },
+      { title: "AI Unit Economics Deep Dive — Sequoia", url: "https://www.sequoiacap.com/", type: "Article" },
     ]
   },
   "w12": {
-    id: "w12", title: "Week 12: Capstone Project",
-    description: "Put it all together. Design, spec, evaluate, and pitch a complete AI product — from problem statement to architecture to launch plan.",
-    lessons: ["l15", "l15b"],
-    objectives: ["Complete a full AI product PRD", "Present your architecture decisions with trade-offs", "Deliver a 5-minute product pitch to a simulated panel"],
-    assignment: "Final submission: Your complete AI Product pitch deck (8 slides) + 2-page technical PRD. Use everything from weeks 1–11.",
+    id: "w12", title: "Week 12: Capstone + AI PM Career",
+    description: "Ship your capstone project and launch your AI PM career. Complete deliverables, nail the AI PM interview, build your portfolio, and solve a live mock case.",
+    lessons: ["l15", "l15b", "l15c", "l15d"],
+    objectives: [
+      "Complete a full AI product PRD with architecture, evals, and guardrails",
+      "Present your capstone with a compelling 5-minute pitch",
+      "Ace the AI PM interview with proven case frameworks",
+      "Build a portfolio that showcases your AI product thinking",
+    ],
+    assignment: "Final submission: Capstone pitch deck (8 slides) + 2-page technical PRD + recorded 5-minute demo. Use frameworks from all 12 weeks.",
+    keyConceptsLabel: "Product PRD, architecture decisions, AI PM interviews, portfolio, case frameworks",
     resources: [
       { title: "AI Product PRD Template — Lenny's Newsletter", url: "https://www.lennysnewsletter.com/", type: "Template" },
       { title: "Product Pitch Frameworks — Y Combinator", url: "https://www.ycombinator.com/library/4T-how-to-design-a-better-pitch-deck", type: "Guide" },
+      { title: "AI PM Interview Prep — The PM Interview", url: "https://thepminterview.com/", type: "Guide" },
     ]
   },
 };
@@ -424,12 +562,116 @@ AI software: Evaluation is a continuous, post-launch activity. User behavior, mo
     ]
   },
 
+  "l3b": {
+    id: "l3b", weekId: "w1",
+    title: "AI Capabilities & Limitations: What AI Can and Can't Do",
+    subtitle: "The honest guide to where AI is genuinely powerful and where it will embarrass you in production.",
+    time: 18,
+    content: `Understanding AI limitations is arguably more important for PMs than understanding capabilities. Anyone can be excited about what AI can do. The value of a great AI PM is knowing precisely where it breaks — before you've promised it to customers.
+
+**What AI is genuinely great at:**
+
+**1. Pattern recognition at scale**
+AI can find patterns in data that no human could spot manually. It can read 10 million customer reviews and identify the top complaint categories. It can scan 500 contracts and flag the unusual clauses. It can monitor millions of transactions and detect anomalies in real time. These tasks are tedious for humans, parallelizable for AI, and require no creativity.
+
+**2. Text transformation and generation**
+Summarization, translation, reformatting, expanding, tone-shifting — AI is extraordinarily good at taking text and transforming it. This includes writing first drafts, generating options, converting bullet points to prose, and vice versa. The key word is "first draft" — AI generates, humans refine.
+
+**3. Semantic search and similarity**
+AI can understand meaning, not just keywords. It can take "I want a relaxing holiday with mountains and no crowds" and find matching travel packages — without any of those exact words appearing in the results. This is embeddings-based search, and it fundamentally improves discovery experiences.
+
+**4. Code generation and explanation**
+AI can write boilerplate code, complete functions, explain what unfamiliar code does, and suggest fixes for bugs. GitHub Copilot reportedly increases developer productivity by 55% on average for repetitive coding tasks.
+
+**5. Classification and extraction**
+Given enough examples, AI can classify anything: support tickets into categories, emails by urgency, images by content, sentiment by tone. It can also extract structured information from unstructured text — names, dates, amounts, entities — with high accuracy.
+
+---
+
+**Where AI breaks (and what PMs must know):**
+
+**1. Hallucination**
+This is the biggest limitation in production. AI confidently generates false information. It will cite papers that don't exist, quote statistics it invented, and state incorrect facts with the same confidence as correct ones. For any task where accuracy is critical (medical, legal, financial), hallucination is a serious product risk.
+
+**PM Response:** Implement retrieval (RAG), require citations, build human review checkpoints, and design UX that communicates uncertainty.
+
+**2. Knowledge cutoffs**
+LLMs are trained on data up to a specific date. They don't know about recent events, new products, or current pricing. This makes them unreliable for anything time-sensitive.
+
+**PM Response:** Use RAG to inject current information, or combine LLMs with live data APIs. Never ship a product that makes time-sensitive claims without a freshness mechanism.
+
+**3. Reasoning failures**
+Despite impressive performance on many benchmarks, AI models fail in surprising ways on logical reasoning, multi-step math, and planning. They can solve complex calculus but fail basic arithmetic in novel contexts. They can write entire apps but miss obvious logical errors.
+
+**PM Response:** Add verification layers for any critical reasoning output. Use chain-of-thought prompting. Treat AI reasoning as a "draft" that needs validation.
+
+**4. Context window limits**
+LLMs can only process a fixed amount of text at once (the context window). For GPT-4, this is 128,000 tokens. For Claude, it's 200,000. Sounds large — but a 400-page legal document is ~150,000 tokens. When input exceeds the context window, earlier content gets dropped.
+
+**PM Response:** Design chunking and retrieval strategies for long documents. Prioritize what goes in the context window. Never assume the model "remembers" early parts of a long conversation.
+
+**5. Non-determinism**
+The same prompt will produce different outputs every time. Temperature controls this, but you can't eliminate it. This makes traditional software testing frameworks impossible — you can't write a test that says "output should equal X."
+
+**PM Response:** Design for variability. Build eval frameworks that measure quality distributions, not exact matches. Communicate to users that AI outputs are suggestions, not facts.
+
+**6. Bias amplification**
+AI models are trained on human-generated data — which contains human biases. Models reflect and can amplify these biases, producing outputs that favor certain demographics, perpetuate stereotypes, or make discriminatory predictions.
+
+**PM Response:** Conduct bias audits before launch. Test across demographic groups. Build monitoring for bias signals in production. Have a rollback plan.
+
+---
+
+**The PM framework: Match capability to task**
+
+Before spec'ing any AI feature, ask:
+| Requirement | Does AI deliver it reliably? |
+|---|---|
+| Factual accuracy | ⚠️ Risky — add verification |
+| Creative generation | ✅ Strong |
+| Real-time information | ❌ Needs augmentation |
+| Consistent outputs | ⚠️ Partial — use temp=0 |
+| Complex reasoning | ⚠️ Test carefully |
+| Large volume processing | ✅ Strong |
+| Sensitive/regulated tasks | ❌ Human review required |
+
+Knowing this table cold makes you the PM who ships AI responsibly — not the one who ships it embarrassingly.`,
+    keyTakeaways: [
+      "Hallucination is the #1 production risk for AI features — design mitigation into the spec, not the post-mortem.",
+      "AI is excellent at pattern recognition, text transformation, semantic search, code generation, and classification at scale.",
+      "Knowledge cutoffs mean AI is unreliable for current events — RAG or live APIs are required for time-sensitive products.",
+      "Non-determinism makes traditional testing impossible — you need eval frameworks that measure quality distributions.",
+      "Bias amplification is a real product risk — audit across demographic groups before any public launch.",
+    ],
+    thinkLikeAPM: "Great AI PMs are honest about limitations — not to be pessimistic, but because it shapes better product decisions. When you understand exactly where AI breaks, you design features that compensate for those breaks instead of pretending they don't exist. The PM who says 'AI can't do X reliably, so here's how we've handled it' builds more trust with engineering, leadership, and users than the PM who discovers the limitation after launch.",
+    realWorldExample: "In 2023, Air Canada's AI chatbot told a grieving customer he was eligible for a bereavement discount that didn't exist. When the customer claimed the discount, Air Canada said the chatbot was wrong and not their responsibility. The court disagreed — Air Canada was held liable for its chatbot's hallucination. The cost: legal fees, bad press, and a forced policy change. A PM who understood hallucination risk would have added a disclaimer, a human escalation path, and restricted the chatbot from making policy claims without RAG-backed verification.",
+    quiz: [
+      {
+        question: "Your PM wants to build an AI legal contract analyzer that flags problematic clauses. What's the biggest risk to address in your spec?",
+        options: ["The UI might be too complex", "The model may hallucinate non-existent clauses or miss real ones — factual accuracy is critical in legal contexts", "The model's training cutoff means it won't know recent case law", "Users might not trust AI-generated legal analysis"],
+        answer: 1,
+        explanation: "Hallucination is the primary risk. A legal AI that confidently flags non-existent clauses or misses real risks creates serious liability. The spec must include: human review requirements, citation to specific contract text, confidence thresholds, and clear disclaimers that AI output is not legal advice."
+      },
+      {
+        question: "A user asks your AI travel assistant 'What's the cheapest flight to Tokyo next Tuesday?' Your model's training ended 8 months ago. What's the right technical solution?",
+        options: ["Retrain the model with current flight data monthly", "Use RAG to query a live flight pricing API at inference time and inject results into the prompt", "Tell users the AI can only answer general travel questions", "Display the average historical prices from training data with a warning"],
+        answer: 1,
+        explanation: "RAG (Retrieval-Augmented Generation) is the correct solution. You query a live flights API, get current pricing data, and inject it into the LLM's context window. The model uses its language capabilities to present the results naturally, but the pricing data is fresh from the API — not from training. You don't retrain the model for this use case."
+      },
+    ],
+    resources: [
+      { title: "LLM Hallucination — Understanding and Mitigation", url: "https://www.pinecone.io/learn/llm-hallucination/", type: "Article" },
+      { title: "The Problem of Bias in AI — MIT Technology Review", url: "https://www.technologyreview.com/tag/bias/", type: "Article" },
+      { title: "OpenAI Model Capabilities and Limitations", url: "https://platform.openai.com/docs/models", type: "Official" },
+    ]
+  },
+
   // ===================== WEEK 2 =====================
 
   "l4a": {
     id: "l4a", weekId: "w2",
-    title: "The AI Product Lifecycle: From Idea to Production",
-    subtitle: "Why the standard agile sprint model breaks down for AI, and what to replace it with.",
+    title: "Identifying AI-Worthy Problems",
+    subtitle: "The biggest AI mistake isn't bad engineering — it's solving the wrong problem. Here's how to pick the right ones.",
     time: 20,
     content: `The standard product lifecycle (Discovery → Define → Design → Develop → Deploy → Monitor) still applies to AI products — but with critical modifications at almost every stage. Here's the adapted lifecycle that experienced AI PMs use.
 
@@ -519,7 +761,7 @@ Define your monitoring stack BEFORE launch. You need to log and review:
 
   "l4b": {
     id: "l4b", weekId: "w2",
-    title: "Why Most AI Projects Fail (And How to Avoid It)",
+    title: "Converting Problems into AI Tasks: Classification, Prediction, Generation",
     subtitle: "The uncomfortable truth about AI project success rates and the 5 failure modes that kill them.",
     time: 15,
     content: `Gartner estimates that through 2025, 85% of AI projects will fail to deliver on their business case. That's a staggering failure rate. But the reasons aren't mysterious — they're predictable and avoidable if you know what to look for.
@@ -578,7 +820,7 @@ The fix: Never ship AI to 100% without a monitoring stack. Log inputs, outputs, 
 
   "l4c": {
     id: "l4c", weekId: "w2",
-    title: "Agile for AI: Running AI Sprints That Actually Work",
+    title: "When NOT to Use AI: The Case Against AI-First",
     subtitle: "Adapting your sprint methodology for the uncertainty, experimentation, and non-determinism of AI development.",
     time: 20,
     content: `Standard agile assumes you know roughly what you're building and the challenge is execution. AI projects have a fundamentally different challenge: you often don't know if what you're trying to build is possible until you try. This requires a modified sprint methodology.
@@ -2583,6 +2825,202 @@ The knowledge without action doesn't change your career. The action starts now.`
       { title: "Lenny's Newsletter — AI Product", url: "https://www.lennysnewsletter.com/", type: "Newsletter" },
       { title: "Import AI — Jack Clark", url: "https://jack-clark.net/", type: "Newsletter" },
       { title: "AI Product Builders Community", url: "https://www.aiproductbuilders.com/", type: "Community" },
+    ]
+  },
+
+  "l15c": {
+    id: "l15c", weekId: "w12",
+    title: "AI PM Interview Prep: Frameworks, Cases & Answers",
+    subtitle: "The exact frameworks, case approaches, and answer structures that get AI PMs hired at top companies.",
+    time: 25,
+    content: `AI PM interviews are different from traditional PM interviews in three key ways: they test your technical depth, your ability to reason about non-deterministic systems, and your product sense at the intersection of AI capability and user need.
+
+**The 5 Types of AI PM Interview Questions:**
+
+**1. Design an AI Feature**
+*"Design an AI-powered search for [Company]"*
+
+Use the CIRCLES framework with AI-specific additions:
+- **Clarify**: Who are the users? What task are they trying to accomplish?
+- **Identify**: What's the core user problem? (Not "we should add AI")
+- **Respond**: Map the task type: classification, prediction, or generation?
+- **Cut**: What's the MVP? What requires fine-tuning vs prompting?
+- **List**: What are the technical constraints? (Latency, cost, accuracy)
+- **Evaluate**: How will you measure success? (Precision, recall, hallucination rate)
+- **Summarize**: What would you ship in week 1 vs month 6?
+
+**2. AI Metrics and Evaluation**
+*"How would you measure the success of GitHub Copilot?"*
+
+Traditional metrics don't apply. Be ready with:
+- **Task-specific metrics**: Code acceptance rate, bug rate in AI-assisted code, time-to-complete for tasks
+- **Quality metrics**: Precision (suggestions that are correct), recall (suggestions that are accepted)
+- **Business metrics**: Developer retention, seat expansion, NPS among power users
+- **Counter-metrics**: Cases where AI slows developers down, security vulnerabilities in suggested code
+
+**3. Technical Architecture**
+*"A customer wants to build an AI that answers questions about their 10,000-page policy manual. Walk me through the architecture."*
+
+Answer structure:
+1. Task type: Question answering → RAG (retrieval-augmented generation)
+2. Architecture: Chunk documents → embed → store in vector DB → query at runtime → inject context → generate answer
+3. Key decisions: Chunk size (smaller = more precise retrieval), embedding model (text-embedding-3-large), vector DB (Pinecone or Weaviate), generation model (GPT-4o with temperature=0 for factual tasks)
+4. Eval: Test on 50 known Q&A pairs. Measure: answer accuracy, citation fidelity, hallucination rate
+5. Guardrails: No questions outside policy scope, always cite source page
+
+**4. AI Ethics and Safety**
+*"You're building a hiring AI. What bias risks do you see and how do you address them?"*
+
+Structure your answer:
+- **Identify bias sources**: Training data (historical hiring decisions), proxy variables (zip code → demographics), feedback loops (bias compounds over time)
+- **Mitigation**: Blind screening for protected attributes, bias audits across demographic groups, human review for all final decisions, appeal mechanisms
+- **Metrics**: Demographic parity, equalized odds, individual fairness scores
+- **Ongoing**: Monitor output distributions weekly, retrain on corrected data quarterly
+
+**5. Product Sense for AI**
+*"Why is ChatGPT successful when so many AI assistants before it weren't?"*
+
+Strong answer structure:
+- **Distribution**: OpenAI had API momentum and developer trust. Consumer product at zero cost = instant 100M users
+- **Interface insight**: Chat is universal — no learning curve. Everyone knows how to have a conversation
+- **Timing**: GPT-3.5 hit the quality threshold where it was genuinely useful across many tasks
+- **Feedback loop**: Every conversation improved future models. 100M users = massive RLHF signal
+- **Network effects**: Developers built on the API, creating an ecosystem that made switching costly
+
+---
+
+**The 5 Sentences That Get You Hired:**
+
+1. "Before I design anything, I need to understand whether this problem actually needs AI — or whether a simpler solution would serve users better."
+2. "My primary concern with any AI feature is: how do we measure it when the outputs aren't deterministic?"
+3. "I'd start with prompting over fine-tuning — it's 10x cheaper and faster to iterate, and we can upgrade the approach once we've validated the core use case."
+4. "We need a golden dataset of 50 test cases before we ship, so we have a baseline to measure against as we iterate."
+5. "The guardrail question isn't a legal checkbox — it's a core product design decision that affects trust and retention."`,
+    keyTakeaways: [
+      "AI PM interviews test three things: technical depth, product sense at the AI frontier, and your ability to reason about non-deterministic systems.",
+      "The CIRCLES framework applies to AI design questions — but you must add AI-specific layers: task type, eval framework, and guardrails.",
+      "Traditional product metrics don't map to AI: prepare specific AI quality metrics for any product you discuss.",
+      "Architecture questions expect RAG fluency — know the chunking, embedding, vector DB, generation pipeline cold.",
+      "Ethical/bias questions are a differentiator — interviewers want to see you proactively identify and address risks.",
+    ],
+    thinkLikeAPM: "In an AI PM interview, the candidate who says 'I would add AI because it would make this better' gets filtered out. The candidate who says 'The problem is X, AI is viable because of Y, here's how I'd measure it with Z metric, and here's what I'd do if the hallucination rate exceeds T' gets hired. Specificity about evaluation and measurement is the highest signal of a serious AI PM.",
+    realWorldExample: "Priya interviewed for an AI PM role at a Series B company. The case: 'Design an AI customer support system.' Her answer: 'First, I need to know the top 20 support ticket categories. I'd use RAG over the knowledge base for tier-1 questions (simple, factual), escalate to human agents for tier-2 (complex, emotional), and never let the AI handle billing disputes or refund decisions. I'd measure: deflection rate, CSAT delta vs human-only, hallucination incidents per 1,000 conversations, and time-to-resolution. I'd pilot with 5% of traffic, measure for 2 weeks, then scale.' She got the offer.",
+    quiz: [
+      {
+        question: "In an AI PM interview, you're asked: 'How would you measure the success of an AI writing assistant?' What's the best metric structure?",
+        options: [
+          "Daily active users and time spent in the app",
+          "A combination of quality metrics (acceptance rate, edit distance), business metrics (retention, NPS), and counter-metrics (cases where AI slowed users down)",
+          "Number of AI suggestions generated per day",
+          "User satisfaction score from a quarterly survey",
+        ],
+        answer: 1,
+        explanation: "Strong AI PM metric answers include: task-specific quality metrics (did users accept or significantly edit the suggestion?), business metrics (are users retained, expanding their usage?), and crucially — counter-metrics that show you've thought about failure modes. Single-dimension metrics signal junior thinking."
+      },
+    ],
+    resources: [
+      { title: "AI PM Interview Questions — Exponent", url: "https://www.tryexponent.com/courses/pm/ai-pm-interviews", type: "Course" },
+      { title: "The PM Interview — AI Edition", url: "https://thepminterview.com/", type: "Guide" },
+      { title: "Cracking the AI PM Interview — Lenny's Newsletter", url: "https://www.lennysnewsletter.com/", type: "Article" },
+    ]
+  },
+
+  "l15d": {
+    id: "l15d", weekId: "w12",
+    title: "Building Your AI PM Portfolio",
+    subtitle: "How to build a portfolio that proves you can do AI PM work — even before you have the job title.",
+    time: 20,
+    content: `The fastest way to become an AI PM is to stop waiting for the AI PM title and start doing AI PM work. A portfolio isn't a resume — it's evidence. Here's how to build one that gets callbacks.
+
+**The 4 Portfolio Assets That Actually Work:**
+
+**1. AI Product Teardowns**
+A teardown is a structured analysis of an existing AI product. The format that works:
+- **The product**: What does it do? Who is it for?
+- **The AI layer**: What task type? RAG, fine-tuned model, or prompting? How do you know?
+- **The UX decisions**: How do they handle uncertainty? How do they build trust? What fails?
+- **The metrics**: What are they probably measuring? What would you change?
+- **Your critique**: 3 specific improvements with your reasoning.
+
+**Where to publish:** LinkedIn (best reach for PM audience), Substack (if you write more than one), Medium. Length: 800–1,500 words. Frequency: 2–3 per month to build momentum.
+
+**Examples that worked:** "Why Notion AI Shows Suggestions Instead of Replacing Text" — This teardown exploring Notion's UX decisions got 12K views and led directly to 3 recruiter messages.
+
+**2. Your Capstone Project**
+This is your most important asset. Package it as:
+- **The problem**: 2 sentences. Who is hurting and why?
+- **The AI approach**: Architecture diagram + 3-sentence explanation of why you chose this approach
+- **The MVP**: A live demo link OR a Loom walkthrough (5 minutes max)
+- **The eval**: What metric did you track? What did you learn?
+- **The iteration**: What did you change after testing, and why?
+
+**Where to publish:** GitHub README (for the technical audience) + LinkedIn post (for the PM audience) + personal website. A working link beats a description every time.
+
+**3. Prompt Libraries and Templates**
+Create a public resource that practitioners find useful:
+- A prompt template for a specific use case (customer support, code review, document analysis)
+- An evaluation rubric for a specific AI task
+- A decision framework (RAG vs fine-tuning for your domain)
+
+**Where to publish:** GitHub (star-able, searchable) + LinkedIn. These build credibility through utility — people bookmark and share resources that save them time.
+
+**4. AI Product Writing**
+Write what you know from this course:
+- "What I Learned Building [Your Capstone]" — the learnings from your own building experience
+- "The AI PM Metrics Framework I Wish I Had Earlier" — practical frameworks
+- "5 AI Products With Impressive UX (And What Makes Them Work)" — analysis at scale
+
+**The Portfolio Stack:**
+| Platform | Purpose | Update frequency |
+|---|---|---|
+| LinkedIn | Reach and networking | 2-3 posts/week |
+| GitHub | Technical credibility | Each project |
+| Personal site | Aggregation + SEO | Monthly |
+| Substack/Medium | Long-form writing | 2x/month |
+
+---
+
+**The 30-Day Portfolio Sprint:**
+
+- **Week 1:** Publish your capstone project (PRD + demo + LinkedIn post)
+- **Week 2:** Write and publish your first AI product teardown
+- **Week 3:** Create and share one prompt library or template on GitHub
+- **Week 4:** Write a reflection piece: "What I Learned Building an AI Product in 12 Weeks"
+
+By day 30, you have 4 portfolio items, 500–5,000 LinkedIn impressions, and a GitHub profile that shows you build things.
+
+**The Rule of Public Building:**
+
+Every AI PM role has hundreds of applicants with similar resumes. The candidates who stand out are the ones who've built in public — because they've already demonstrated product thinking, technical curiosity, and communication skills in a format that's impossible to fake.
+
+You don't need an AI PM title to do AI PM thinking. You need to start doing it publicly.`,
+    keyTakeaways: [
+      "A portfolio is evidence of doing AI PM work — not a list of credentials. Teardowns, capstones, and public building matter more than certifications.",
+      "AI product teardowns published on LinkedIn are the highest-ROI portfolio activity: 800 words, 2x/month, direct recruiter visibility.",
+      "Package your capstone with: problem statement, architecture diagram, live demo/Loom, eval metrics, and iteration learnings.",
+      "The 30-day portfolio sprint: capstone post → teardown → prompt library → reflection piece. Four assets in one month.",
+      "Public building creates a track record that's impossible to fake — and that's exactly what hiring managers are looking for.",
+    ],
+    thinkLikeAPM: "The AI PM job market rewards builders who communicate. The best portfolio asset isn't a certification, a degree, or even a job title — it's a live link to something you made, accompanied by clear explanation of the decisions you made and what you learned. Start before you feel ready. The imperfect thing you ship and share beats the perfect thing you're still drafting.",
+    realWorldExample: "James was a traditional PM at a logistics company with zero AI experience. Over 90 days, he: (1) built an AI document summarizer using OpenAI API, (2) published a 1,200-word LinkedIn teardown of Harvey AI, (3) wrote a prompt library for legal document analysis on GitHub. The result: 3 AI PM interviews, 1 offer — as an AI PM lead, 2 levels above his previous role. His resume was unchanged. His portfolio was entirely new.",
+    quiz: [
+      {
+        question: "You have 1 week to build the most impactful portfolio asset for an AI PM job application. What should you prioritize?",
+        options: [
+          "Complete 3 online AI certifications and list them on LinkedIn",
+          "Build and publish a live demo of your capstone with a clear explanation of the problem, your AI approach, and what you measured",
+          "Apply to 50 AI PM jobs to maximize your chances",
+          "Write a 5,000-word essay about the future of AI for Medium",
+        ],
+        answer: 1,
+        explanation: "Hiring managers consistently report that a live, working demo with clear product thinking outperforms any certification or long-form writing. The capstone positions you as someone who builds, not just someone who knows — and that's the signal that actually moves the needle in AI PM hiring."
+      },
+    ],
+    resources: [
+      { title: "AI PM Job Board — aijobs.net", url: "https://aijobs.net/", type: "Career" },
+      { title: "How to Build a PM Portfolio — Lenny's Newsletter", url: "https://www.lennysnewsletter.com/", type: "Guide" },
+      { title: "Exponent AI PM Interview Prep", url: "https://www.tryexponent.com/", type: "Course" },
+      { title: "Reforge AI Product Track", url: "https://www.reforge.com/", type: "Course" },
     ]
   },
 };

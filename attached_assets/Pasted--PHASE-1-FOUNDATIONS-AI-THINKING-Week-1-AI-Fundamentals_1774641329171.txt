@@ -1,0 +1,164 @@
+🚀 PHASE 1: FOUNDATIONS & AI THINKING
+📅 Week 1: AI Fundamentals for PMs
+Lessons:
+What is AI, ML, LLMs (no jargon)
+How LLMs actually work (intuitive)
+AI vs traditional software
+Capabilities & limitations of AI
+Key Concepts:
+Tokens, context window, hallucination
+Deterministic vs probabilistic systems
+Assignment:
+Break down 3 products into:
+AI vs non-AI components
+📅 Week 2: Problem Framing for AI
+Lessons:
+Identifying AI-worthy problems
+Converting problems into:
+Classification
+Prediction
+Generation
+When NOT to use AI
+Frameworks:
+AI feasibility checklist
+ROI vs complexity matrix
+Assignment:
+Pick a real-world problem → frame it as an AI problem
+🏗️ PHASE 2: AI PRODUCT DESIGN
+📅 Week 3: AI Product Strategy
+Lessons:
+AI-native vs AI-enabled
+Building defensibility in AI
+Wedge strategies
+Case Studies:
+ChatGPT
+Notion AI
+Assignment:
+Design an AI product strategy for a startup idea
+📅 Week 4: AI UX & Interaction Design
+Lessons:
+Designing for uncertainty
+Prompt UX
+Conversational vs structured UI
+Confidence & explainability
+Concepts:
+Human-in-the-loop design
+Editable AI outputs
+Assignment:
+Redesign an existing AI product UX
+📅 Week 5: AI Product Architecture
+Lessons:
+LLM apps architecture
+RAG (Retrieval-Augmented Generation)
+Fine-tuning vs prompting
+Agents & workflows
+Tools Introduced:
+LangChain
+Pinecone
+Assignment:
+Draw architecture for your capstone product
+⚙️ PHASE 3: BUILDING WITH AI
+📅 Week 6: AI Tech Stack for PMs
+Lessons:
+APIs vs open-source models
+Embeddings & vector search
+Cost vs latency trade-offs
+Tools:
+OpenAI API
+Hugging Face
+Assignment:
+Choose tech stack for your product (with justification)
+📅 Week 7: Prototyping & Building
+Lessons:
+Prompt engineering fundamentals
+Rapid prototyping (no-code + code)
+Building MVPs with AI
+Hands-on:
+Build:
+AI chatbot OR
+AI feature inside an app
+Assignment:
+MVP v1 of capstone
+📅 Week 8: AI Experimentation & Iteration
+Lessons:
+Prompt iteration loops
+A/B testing AI outputs
+Human feedback loops
+Assignment:
+Improve your MVP using:
+Prompt tuning
+Feedback
+📊 PHASE 4: SCALING & MASTERY
+📅 Week 9: AI Metrics & Evaluation
+Lessons:
+Why traditional metrics fail
+AI metrics:
+Accuracy
+Hallucination rate
+Latency
+Cost per output
+Concepts:
+Offline vs online evals
+Human evaluation systems
+Assignment:
+Create eval framework for your product
+📅 Week 10: Guardrails & Responsible AI
+Lessons:
+Prompt injection & jailbreaks
+Bias & fairness
+Privacy & compliance
+Systems:
+Moderation pipelines
+Safety layers
+Assignment:
+Design guardrails for your product
+📅 Week 11: Business, Scaling & Lifecycle
+Lessons:
+AI pricing models
+Unit economics
+Scaling challenges
+Drift & monitoring
+Concepts:
+Data flywheel
+Feedback loops
+Assignment:
+Define monetization + scaling plan
+🏁 PHASE 5: CAPSTONE & CAREER
+📅 Week 12: Capstone + AI PM Career
+Capstone Deliverables:
+Problem statement
+AI architecture
+MVP demo
+Metrics & evals
+Guardrails
+GTM strategy
+Career Module:
+Lessons:
+AI PM interview prep
+Case frameworks
+Portfolio building
+Mock Case:
+“Design an AI product for X”
+🧩 CAPSTONE PROJECT (RUNS THROUGHOUT)
+Goal:
+
+Build a real AI product
+
+Options:
+AI recruiter assistant
+AI study companion
+AI workflow automation tool
+AI SaaS feature
+🛠️ BONUS MODULES (OPTIONAL BUT HIGH VALUE)
+🔮 Future of AI
+Agents
+Multimodal systems
+Autonomous workflows
+🧠 AI PM Playbooks
+RAG vs fine-tune decision tree
+AI feature launch checklist
+Eval templates
+⚠️ Failure Modes
+Over-trusting AI
+Poor eval design
+Misaligned UX

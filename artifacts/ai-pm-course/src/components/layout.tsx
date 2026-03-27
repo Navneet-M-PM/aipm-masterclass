@@ -34,7 +34,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         <header className="fixed top-0 left-0 right-0 z-50 glass-panel border-b-0 border-t-0 border-l-0 border-r-0 rounded-none bg-background/70">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-all duration-300">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="font-display font-bold text-xl tracking-tight">AI PM Course</span>
@@ -60,7 +60,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 glass-panel z-40 flex items-center justify-between px-4 border-b">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="font-display font-bold text-lg">AI PM Course</span>
@@ -76,7 +76,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         <div className="hidden lg:flex h-20 items-center px-6 border-b border-border gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-lg shadow-primary/20">
             <Sparkles className="w-5 h-5 text-white" />
           </div>
           <span className="font-display font-bold text-xl tracking-tight">AI PM Course</span>

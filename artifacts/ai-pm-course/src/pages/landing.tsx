@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, BrainCircuit, Code, Rocket, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BrainCircuit, Code, Rocket, ShieldCheck, ChevronRight } from "lucide-react";
 
 export default function Landing() {
   return (
@@ -24,26 +24,26 @@ export default function Landing() {
               Next Cohort Enrolling Now
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight mb-8 leading-[1.1]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight mb-8 leading-[1.05]">
               Become an AI PM who <br className="hidden md:block" />
               <span className="text-gradient">builds, not just ships.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              A 12-week immersive curriculum designed for senior Product Managers. 
-              Master LLM architecture, prompt engineering, RAG, and AI product strategy to build products that feel like magic.
+              A 12-week immersive curriculum for Product Managers. 
+              Master LLM architecture, prompt engineering, RAG, agents, and AI evaluation to build products that feel like magic.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link 
                 href="/dashboard" 
-                className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-primary to-accent-foreground text-white shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold text-lg bg-primary text-primary-foreground shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
               >
-                Access Platform Demo <ArrowRight className="w-5 h-5" />
+                Access Platform <ArrowRight className="w-5 h-5" />
               </Link>
-              <button className="w-full sm:w-auto px-8 py-4 rounded-full font-semibold text-lg bg-card border border-border hover:bg-muted transition-all duration-300">
-                View Curriculum
-              </button>
+              <Link href="/curriculum" className="w-full sm:w-auto px-8 py-4 rounded-2xl font-semibold text-lg bg-card border border-border hover:bg-muted hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2">
+                View Curriculum <ChevronRight className="w-5 h-5" />
+              </Link>
             </div>
           </motion.div>
 
