@@ -209,10 +209,17 @@ DATABASE_URL=postgresql://user:password@host:5432/dbname
 
 ### Database Setup
 
+The `database/` folder contains everything you need:
+
 ```bash
-# Push schema to your database
-pnpm --filter @workspace/db run db:push
+# Option A — Plain SQL (works on any platform: Neon, Supabase, Railway, Render…)
+psql "YOUR_DATABASE_URL" -f database/schema.sql
+
+# Option B — Drizzle push (if running locally with Node.js)
+pnpm --filter @workspace/db run push
 ```
+
+> See [`database/MIGRATION_GUIDE.md`](./database/MIGRATION_GUIDE.md) for full step-by-step instructions on moving to a different platform, exporting live data, and restoring it.
 
 ### Development
 

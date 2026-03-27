@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Database exports (contain live user data — never commit)
+database/export.sql
+*.sql.bak
