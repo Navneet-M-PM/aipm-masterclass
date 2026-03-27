@@ -4,10 +4,11 @@ import { COURSE_LESSONS, COURSE_WEEKS, type Lesson } from "@/lib/data";
 import { useProgress, useSaveProgress } from "@/hooks/use-progress";
 import { useNotes, useSaveLessonNote } from "@/hooks/use-notes";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Save, Clock, BookOpen, Edit3, Lightbulb, ExternalLink, HelpCircle, X, ChevronDown, ChevronUp, Trophy } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Save, Clock, BookOpen, Edit3, Lightbulb, ExternalLink, HelpCircle, X, ChevronDown, ChevronUp, Trophy, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 import { useToast } from "@/hooks/use-toast";
+import { DiagramRenderer } from "@/components/diagrams";
 
 function QuizBlock({ quiz }: { quiz: Lesson["quiz"] }) {
   const [selected, setSelected] = useState<number[]>([]);
@@ -321,6 +322,13 @@ export default function LessonView() {
                 <ContentBlock text={lesson.content} />
               </div>
             </Section>
+
+            {/* Visual Guide — Diagram */}
+            {lesson.diagramId && (
+              <Section id="diagram" label="Visual Guide" icon={<BarChart3 className="w-5 h-5 text-[hsl(172_76%_42%)]" />}>
+                <DiagramRenderer id={lesson.diagramId} />
+              </Section>
+            )}
 
             {/* Key Takeaways */}
             {lesson.keyTakeaways && lesson.keyTakeaways.length > 0 && (

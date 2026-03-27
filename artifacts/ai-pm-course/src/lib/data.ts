@@ -316,6 +316,7 @@ export interface Resource {
 export interface Lesson {
   id: string;
   weekId: string;
+  diagramId?: string;
   title: string;
   subtitle: string;
   time: number;
@@ -332,7 +333,7 @@ export const COURSE_LESSONS: Record<string, Lesson> = {
   // ===================== WEEK 1 =====================
 
   "l1": {
-    id: "l1", weekId: "w1",
+    id: "l1", weekId: "w1", diagramId: "ai-eras-timeline",
     title: "Intro to AI: What Every PM Must Know",
     subtitle: "The 30,000-foot view of what AI is, why now, and what it means for product people.",
     time: 15,
@@ -417,7 +418,7 @@ If you're going to advocate for AI investments, you need to speak in numbers. He
   },
 
   "l2": {
-    id: "l2", weekId: "w1",
+    id: "l2", weekId: "w1", diagramId: "llm-flow",
     title: "How LLMs Work: The PM's Mental Model",
     subtitle: "You don't need to write code — but you must understand what's happening inside the black box.",
     time: 20,
@@ -519,7 +520,7 @@ The model market moved fast in 2024-2025. Here is the practical comparison table
   },
 
   "l3": {
-    id: "l3", weekId: "w1",
+    id: "l3", weekId: "w1", diagramId: "ai-vs-traditional",
     title: "AI vs. Traditional Software: What Changes for PMs",
     subtitle: "Everything you knew about shipping features still applies — but these 5 things are fundamentally different.",
     time: 25,
@@ -611,7 +612,7 @@ AI software: Evaluation is a continuous, post-launch activity. User behavior, mo
   },
 
   "l3b": {
-    id: "l3b", weekId: "w1",
+    id: "l3b", weekId: "w1", diagramId: "ai-capabilities-map",
     title: "AI Capabilities & Limitations: What AI Can and Can't Do",
     subtitle: "The honest guide to where AI is genuinely powerful and where it will embarrass you in production.",
     time: 18,
@@ -717,7 +718,7 @@ Knowing this table cold makes you the PM who ships AI responsibly — not the on
   // ===================== WEEK 2 =====================
 
   "l4a": {
-    id: "l4a", weekId: "w2",
+    id: "l4a", weekId: "w2", diagramId: "problem-framing-tree",
     title: "Identifying AI-Worthy Problems",
     subtitle: "The biggest AI mistake isn't bad engineering — it's solving the wrong problem. Here's how to pick the right ones.",
     time: 20,
@@ -808,7 +809,7 @@ Define your monitoring stack BEFORE launch. You need to log and review:
   },
 
   "l4b": {
-    id: "l4b", weekId: "w2",
+    id: "l4b", weekId: "w2", diagramId: "roi-complexity-matrix",
     title: "Converting Problems into AI Tasks: Classification, Prediction, Generation",
     subtitle: "The uncomfortable truth about AI project success rates and the 5 failure modes that kill them.",
     time: 15,
@@ -867,7 +868,7 @@ The fix: Never ship AI to 100% without a monitoring stack. Log inputs, outputs, 
   },
 
   "l4c": {
-    id: "l4c", weekId: "w2",
+    id: "l4c", weekId: "w2", diagramId: "when-not-ai",
     title: "When NOT to Use AI: The Case Against AI-First",
     subtitle: "Adapting your sprint methodology for the uncertainty, experimentation, and non-determinism of AI development.",
     time: 20,
@@ -937,7 +938,7 @@ The acceptance criteria for AI features MUST include quality thresholds, not jus
   // ===================== WEEK 3 =====================
 
   "l5": {
-    id: "l5", weekId: "w3",
+    id: "l5", weekId: "w3", diagramId: "ai-strategy-matrix",
     title: "AI Product Strategy: Finding the Right Problems to Solve",
     subtitle: "Why 'add AI to everything' is a strategy for mediocrity, and the frameworks that find genuine AI opportunities.",
     time: 30,
@@ -1019,7 +1020,7 @@ If you can't answer all 7, you're not ready to start building.`,
   },
 
   "l6": {
-    id: "l6", weekId: "w3",
+    id: "l6", weekId: "w3", diagramId: "case-study-timeline",
     title: "Case Study: How ChatGPT Became the Fastest-Growing Product in History",
     subtitle: "The product decisions — not the model decisions — that made ChatGPT reach 100 million users in 60 days.",
     time: 20,
@@ -1095,7 +1096,7 @@ This is the classic innovator's dilemma, applied to AI. Incumbents had the techn
   },
 
   "l6b": {
-    id: "l6b", weekId: "w3",
+    id: "l6b", weekId: "w3", diagramId: "data-flywheel",
     title: "Competitive Moats in the Age of AI",
     subtitle: "Why 'we have GPT-4 too' is not a moat — and what actually creates defensible AI products.",
     time: 15,
@@ -1148,7 +1149,7 @@ Sometimes the moat is just being in the right place. Microsoft embedding Copilot
   // ===================== WEEK 4 =====================
 
   "l7": {
-    id: "l7", weekId: "w4",
+    id: "l7", weekId: "w4", diagramId: "ai-ux-4-pillars",
     title: "UX Design for Generative AI: The New Rules",
     subtitle: "The 6 principles that separate AI products users love from AI products users abandon.",
     time: 25,
@@ -1228,7 +1229,7 @@ Every AI interaction is a data point that could improve the system. Make it easy
   },
 
   "l7b": {
-    id: "l7b", weekId: "w4",
+    id: "l7b", weekId: "w4", diagramId: "human-in-loop",
     title: "Building Trust in AI Products: The Trust Architecture",
     subtitle: "Trust is the #1 driver of AI feature adoption and retention. Here's how to engineer it.",
     time: 20,
@@ -1285,7 +1286,7 @@ Show users the AI's accuracy history for their specific use case. "This week, 94
   },
 
   "l7c": {
-    id: "l7c", weekId: "w4",
+    id: "l7c", weekId: "w4", diagramId: "conversation-vs-structured",
     title: "AI UX Patterns: A Practical Field Guide",
     subtitle: "30+ proven interaction patterns for common AI features — with implementation notes for PMs.",
     time: 20,
@@ -1356,7 +1357,7 @@ Show users the AI's accuracy history for their specific use case. "This week, 94
   // ===================== WEEK 5 =====================
 
   "l8": {
-    id: "l8", weekId: "w5",
+    id: "l8", weekId: "w5", diagramId: "rag-architecture",
     title: "RAG Architecture: The PM's Complete Guide",
     subtitle: "The single most important AI architecture pattern for enterprise products. Master this and you'll design 80% of AI features correctly.",
     time: 35,
@@ -1461,7 +1462,7 @@ The LLM generates an answer grounded in the retrieved documents, not in its trai
   },
 
   "l8b": {
-    id: "l8b", weekId: "w5",
+    id: "l8b", weekId: "w5", diagramId: "agent-loop",
     title: "RAG in Practice: Speccing It for Your Team",
     subtitle: "How to write the technical requirements for a RAG feature without needing an engineering degree.",
     time: 20,
@@ -1571,7 +1572,7 @@ Not all agent tasks carry the same risk. HubSpot classifies tasks on a precision
   // ===================== WEEK 6 =====================
 
   "l9": {
-    id: "l9", weekId: "w6",
+    id: "l9", weekId: "w6", diagramId: "tech-stack-layers",
     title: "Prompt Engineering: The New Product Spec",
     subtitle: "Prompts are code. Writing them well is a product skill, not just an engineering skill.",
     time: 30,
@@ -1663,7 +1664,7 @@ Mitigations: Input sanitization, output filtering, using models with strong safe
   },
 
   "l9b": {
-    id: "l9b", weekId: "w6",
+    id: "l9b", weekId: "w6", diagramId: "embeddings-vector-search",
     title: "Advanced Prompting: Chaining, Function Calling & Structured Outputs",
     subtitle: "Move beyond single prompts to multi-step AI reasoning pipelines.",
     time: 20,
@@ -1739,7 +1740,7 @@ This is dramatically more reliable for downstream processing than trying to pars
   },
 
   "l9c": {
-    id: "l9c", weekId: "w6",
+    id: "l9c", weekId: "w6", diagramId: "model-selection-tree",
     title: "Building a Prompt Library for Your Team",
     subtitle: "How to create, maintain, and govern a shared prompt library that scales across your organization.",
     time: 15,
@@ -1819,7 +1820,7 @@ Larger organizations should establish an AI Center of Excellence (CoE) — a cro
   // ===================== WEEK 7 =====================
 
   "l10": {
-    id: "l10", weekId: "w7",
+    id: "l10", weekId: "w7", diagramId: "prompt-anatomy",
     title: "Build Your First AI Product: The Complete Stack",
     subtitle: "A step-by-step architectural walkthrough of every component in a production AI chatbot — from idea to shipped.",
     time: 45,
@@ -1988,7 +1989,7 @@ Phase 1: identified playlist curation as the highest user-value opportunity. Pha
   },
 
   "l10b": {
-    id: "l10b", weekId: "w7",
+    id: "l10b", weekId: "w7", diagramId: "implementation-roadmap",
     title: "Writing the AI Feature PRD: A Complete Template",
     subtitle: "Every section of a production-ready AI feature PRD, with examples for each section.",
     time: 25,
@@ -2073,7 +2074,7 @@ If the AI feature degrades beyond the minimum quality threshold, what's the roll
   // ===================== WEEK 8 =====================
 
   "l11": {
-    id: "l11", weekId: "w8",
+    id: "l11", weekId: "w8", diagramId: "ab-testing-loop",
     title: "Fine-tuning vs. RAG: Making the Right Architectural Decision",
     subtitle: "The decision that determines your cost, quality, and maintenance burden for years.",
     time: 30,
@@ -2163,7 +2164,7 @@ Example: A legal AI system might fine-tune on thousands of legal briefs to learn
   },
 
   "l11b": {
-    id: "l11b", weekId: "w8",
+    id: "l11b", weekId: "w8", diagramId: "feedback-loop",
     title: "Model Selection: Choosing the Right LLM for Your Use Case",
     subtitle: "GPT-4o vs. Claude vs. Gemini vs. Llama: A practical PM guide to model selection.",
     time: 20,
@@ -2244,7 +2245,7 @@ Always start with the cheapest model that might work. Run your Golden Dataset. I
   // ===================== WEEK 9 =====================
 
   "l12": {
-    id: "l12", weekId: "w9",
+    id: "l12", weekId: "w9", diagramId: "eval-pipeline",
     title: "AI Metrics & Evaluation: Measuring the Unmeasurable",
     subtitle: "How do you measure quality for a system that gives a different answer every time? This is the hardest PM challenge in AI.",
     time: 30,
@@ -2346,7 +2347,7 @@ This scales to thousands of evaluations per day at a fraction of the cost of hum
   },
 
   "l12b": {
-    id: "l12b", weekId: "w9",
+    id: "l12b", weekId: "w9", diagramId: "eval-pipeline",
     title: "Building Your Eval Pipeline: From Golden Dataset to Production Monitoring",
     subtitle: "A step-by-step guide to building the evaluation infrastructure that keeps your AI feature quality high.",
     time: 20,
@@ -2420,7 +2421,7 @@ This feedback loop is what makes AI features improve over time rather than stagn
   // ===================== WEEK 10 =====================
 
   "l13": {
-    id: "l13", weekId: "w10",
+    id: "l13", weekId: "w10", diagramId: "guardrails-layers",
     title: "AI Safety & Guardrails: Building AI Products That Don't Blow Up",
     subtitle: "Every AI feature ships with risk. Learn to identify, mitigate, and monitor it — before lawyers and press have to.",
     time: 30,
@@ -2530,7 +2531,7 @@ High-risk items (H × H) are blockers for launch. Medium-risk items need mitigat
   },
 
   "l13b": {
-    id: "l13b", weekId: "w10",
+    id: "l13b", weekId: "w10", diagramId: "responsible-ai-framework",
     title: "AI Bias, Fairness & Legal Compliance",
     subtitle: "The regulatory landscape, fairness testing methods, and how to brief legal on your AI features.",
     time: 20,
@@ -2610,7 +2611,7 @@ This brief helps legal identify the regulatory requirements without needing to u
   // ===================== WEEK 11 =====================
 
   "l14": {
-    id: "l14", weekId: "w11",
+    id: "l14", weekId: "w11", diagramId: "ai-business-model",
     title: "Go-to-Market Strategy for AI Features",
     subtitle: "AI changes pricing, positioning, and launch sequencing. The old GTM playbook needs an upgrade.",
     time: 25,
@@ -2706,7 +2707,7 @@ Labeling an AI feature "Beta" is not just about managing expectations — it's a
   },
 
   "l14b": {
-    id: "l14b", weekId: "w11",
+    id: "l14b", weekId: "w11", diagramId: "unit-economics",
     title: "AI Product Metrics: The Dashboard Every AI PM Needs",
     subtitle: "The 12 metrics that tell you whether your AI feature is thriving or about to fail.",
     time: 20,
@@ -2773,7 +2774,7 @@ Track this North Star alongside your 12 health metrics for a complete picture.`,
   // ===================== WEEK 12 =====================
 
   "l15": {
-    id: "l15", weekId: "w12",
+    id: "l15", weekId: "w12", diagramId: "capstone-stages",
     title: "Capstone: Building Your AI Product from Scratch",
     subtitle: "Apply everything from weeks 1–11 to design, spec, evaluate, and pitch a complete AI product.",
     time: 60,
@@ -2882,7 +2883,7 @@ The field is evolving rapidly. What makes a great AI PM isn't knowing the latest
   },
 
   "l15b": {
-    id: "l15b", weekId: "w12",
+    id: "l15b", weekId: "w12", diagramId: "career-path",
     title: "Your AI PM Career: Next Steps & Community",
     subtitle: "How to get your first AI PM role, build your portfolio, and keep learning in a rapidly evolving field.",
     time: 20,
@@ -2963,7 +2964,7 @@ The knowledge without action doesn't change your career. The action starts now.`
   },
 
   "l15c": {
-    id: "l15c", weekId: "w12",
+    id: "l15c", weekId: "w12", diagramId: "interview-framework",
     title: "AI PM Interview Prep: Frameworks, Cases & Answers",
     subtitle: "The exact frameworks, case approaches, and answer structures that get AI PMs hired at top companies.",
     time: 25,
@@ -3060,7 +3061,7 @@ Strong answer structure:
   },
 
   "l15d": {
-    id: "l15d", weekId: "w12",
+    id: "l15d", weekId: "w12", diagramId: "career-path",
     title: "Building Your AI PM Portfolio",
     subtitle: "How to build a portfolio that proves you can do AI PM work — even before you have the job title.",
     time: 20,
