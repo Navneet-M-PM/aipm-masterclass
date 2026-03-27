@@ -1,15 +1,20 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: AI PM Course Platform API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: progress
+    description: User progress tracking
+  - name: notes
+    description: Lesson notes
+  - name: capstone
+    description: Capstone project
 paths:
   /healthz:
     get:
@@ -24,6 +29,108 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /progress:
+    get:
+      operationId: getProgress
+      tags: [progress]
+      summary: Get all user progress
+      responses:
+        "200":
+          description: All progress entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LessonProgress"
+    post:
+      operationId: updateProgress
+      tags: [progress]
+      summary: Update lesson progress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateProgressRequest"
+      responses:
+        "200":
+          description: Updated progress
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LessonProgress"
+
+  /notes:
+    get:
+      operationId: getNotes
+      tags: [notes]
+      summary: Get all lesson notes
+      responses:
+        "200":
+          description: All notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LessonNote"
+  /notes/{lessonId}:
+    put:
+      operationId: saveNote
+      tags: [notes]
+      summary: Save a note for a lesson
+      parameters:
+        - name: lessonId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SaveNoteRequest"
+      responses:
+        "200":
+          description: Saved note
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LessonNote"
+
+  /capstone:
+    get:
+      operationId: getCapstone
+      tags: [capstone]
+      summary: Get capstone project data
+      responses:
+        "200":
+          description: Capstone data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CapstoneProject"
+    put:
+      operationId: updateCapstone
+      tags: [capstone]
+      summary: Update capstone project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCapstoneRequest"
+      responses:
+        "200":
+          description: Updated capstone
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CapstoneProject"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +141,106 @@ components:
       required:
         - status
 
+    LessonProgress:
+      type: object
+      properties:
+        id:
+          type: integer
+        lessonId:
+          type: string
+        completed:
+          type: boolean
+        quizScore:
+          type: integer
+          nullable: true
+        completedAt:
+          type: string
+          nullable: true
+      required:
+        - id
+        - lessonId
+        - completed
+
+    UpdateProgressRequest:
+      type: object
+      properties:
+        lessonId:
+          type: string
+        completed:
+          type: boolean
+        quizScore:
+          type: integer
+          nullable: true
+      required:
+        - lessonId
+        - completed
+
+    LessonNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        lessonId:
+          type: string
+        content:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - id
+        - lessonId
+        - content
+        - updatedAt
+
+    SaveNoteRequest:
+      type: object
+      properties:
+        content:
+          type: string
+      required:
+        - content
+
+    CapstoneProject:
+      type: object
+      properties:
+        id:
+          type: integer
+        problemStatement:
+          type: string
+        aiArchitecture:
+          type: string
+        mvpIdea:
+          type: string
+        metrics:
+          type: string
+        guardrails:
+          type: string
+        currentStage:
+          type: string
+        updatedAt:
+          type: string
+      required:
+        - id
+        - problemStatement
+        - aiArchitecture
+        - mvpIdea
+        - metrics
+        - guardrails
+        - currentStage
+        - updatedAt
+
+    UpdateCapstoneRequest:
+      type: object
+      properties:
+        problemStatement:
+          type: string
+        aiArchitecture:
+          type: string
+        mvpIdea:
+          type: string
+        metrics:
+          type: string
+        guardrails:
+          type: string
+        currentStage:
+          type: string

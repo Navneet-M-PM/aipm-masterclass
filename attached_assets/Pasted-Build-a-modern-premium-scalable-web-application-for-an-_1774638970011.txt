@@ -1,0 +1,266 @@
+Build a modern, premium, scalable web application for an “AI Product Management Course” designed for aspiring and experienced Product Managers who want to become AI builders.
+
+The platform should feel like a mix of Reforge, Notion, and a startup SaaS product.
+
+---
+
+## 🎯 CORE GOAL
+
+Create a structured, interactive, and hands-on learning platform where users can:
+
+* Learn AI concepts in simple terms
+* Progress through a 12-week curriculum
+* Build a real AI product (capstone)
+* Track progress
+* Access tools, templates, and frameworks
+
+---
+
+## 🧱 PRODUCT STRUCTURE
+
+### 1. Landing Page
+
+* Hero section:
+
+  * Headline: “Become an AI Product Manager who builds, not just ships”
+  * Subtext: “A complete 12-week program to master AI, build real products, and lead in the AI era”
+  * CTA: “Start Learning”
+
+* Sections:
+
+  * Course outcomes
+  * Who is this for
+  * Curriculum preview (expandable weeks)
+  * Capstone project showcase
+  * Testimonials (placeholder)
+  * Pricing section (optional toggle)
+
+---
+
+### 2. Dashboard (After Login)
+
+* Personalized welcome
+* Course progress tracker (% completion)
+* Continue learning button
+* Weekly roadmap
+* Capstone progress tracker
+* Quick links:
+
+  * Templates
+  * Tools
+  * Community (placeholder)
+
+---
+
+### 3. Course Curriculum Structure
+
+Organize course into:
+
+#### Phase 1: Foundations (Weeks 1–2)
+
+#### Phase 2: Product Design (Weeks 3–5)
+
+#### Phase 3: Building (Weeks 6–8)
+
+#### Phase 4: Scaling (Weeks 9–11)
+
+#### Phase 5: Capstone (Week 12)
+
+---
+
+Each WEEK should include:
+
+* Overview
+* Learning objectives
+* Lessons (multiple)
+* Assignments
+* Resources
+* Progress checkbox system
+
+---
+
+### 4. Lesson Page Design
+
+Each lesson should include:
+
+* Title
+* Estimated time
+* Simple explanation (beginner-friendly)
+* Visual blocks (cards, diagrams placeholders)
+* Real-world examples
+* “Key Takeaways” section
+* “Think Like a PM” section
+* Optional quiz (MCQ format)
+
+---
+
+### 5. Capstone Project Section
+
+Dedicated section where users:
+
+* Define problem statement
+* Upload or write:
+
+  * AI architecture
+  * MVP idea
+  * Metrics
+  * Guardrails
+* Track progress across stages:
+
+  * Idea → Design → Build → Evaluate → Launch
+
+Include:
+
+* Editable templates
+* Submission UI (text + file upload)
+
+---
+
+### 6. Templates & Playbooks Library
+
+Create a resource hub with reusable frameworks:
+
+* AI Problem Framing Template
+* RAG vs Fine-tuning Decision Tree
+* AI Eval Framework
+* AI Product Launch Checklist
+* Prompt Engineering Cheatsheet
+
+Each should be:
+
+* Clickable
+* Expandable
+* Copyable
+
+---
+
+### 7. Tools & Integrations Page
+
+Show commonly used AI tools:
+
+* OpenAI API
+* LangChain
+* Pinecone
+* Hugging Face
+
+Each tool card should include:
+
+* Description
+* Use case
+* “How PMs use this”
+
+---
+
+### 8. Progress & Gamification
+
+* Progress bar per week
+* Completion badges
+* “Streak” system (optional)
+* Capstone completion badge
+
+---
+
+## 🎨 DESIGN REQUIREMENTS
+
+* Clean, modern SaaS UI
+* Minimal but premium (like Notion + Linear + Stripe)
+* Rounded cards, soft shadows
+* Light + dark mode support
+* Use neutral colors with one accent color
+* Responsive design (mobile + desktop)
+
+---
+
+## ⚙️ TECH REQUIREMENTS
+
+* Frontend: React / Next.js
+* Styling: Tailwind CSS
+* Component-based architecture
+* State management for progress tracking
+* Mock backend (or simple database if needed)
+
+Optional:
+
+* Authentication (email/login)
+* Save user progress
+
+---
+
+## 🧠 CONTENT STYLE
+
+* Extremely simple explanations (no jargon)
+* Use analogies wherever possible
+* Include examples for every concept
+* Write like a senior PM teaching a junior PM
+
+---
+
+## 🔁 INTERACTIVITY
+
+* Checkboxes for lesson completion
+* Expand/collapse sections
+* Quiz interactions
+* Editable input fields for assignments
+* Save user responses locally
+
+---
+
+## 📦 SAMPLE CONTENT (IMPORTANT)
+
+Pre-fill at least:
+
+### Week 1:
+
+* Intro to AI
+* How LLMs work
+* AI vs traditional software
+
+### Week 3:
+
+* AI product strategy
+* Case study: ChatGPT
+
+### Week 5:
+
+* RAG architecture explained simply
+
+### Week 7:
+
+* Build a chatbot (step-by-step guide)
+
+---
+
+## 🚀 ADVANCED FEATURES (IF POSSIBLE)
+
+* AI assistant inside platform:
+
+  * “Explain this simpler”
+  * “Give more examples”
+* Search across lessons
+* Notes section per lesson
+
+---
+
+## 📈 FUTURE SCALABILITY
+
+Structure code so we can later add:
+
+* Cohorts
+* Community discussions
+* Live sessions
+* Certifications
+
+---
+
+## OUTPUT EXPECTATION
+
+Generate:
+
+* Full UI
+* Navigation system
+* Sample pre-filled content
+* Functional learning flow
+
+The app should be usable immediately as an MVP course platform.
+
+---

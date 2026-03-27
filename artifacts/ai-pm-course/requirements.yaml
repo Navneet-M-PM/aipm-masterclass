@@ -1,0 +1,16 @@
+packages:
+  "framer-motion": "For smooth page transitions and micro-interactions"
+  "canvas-confetti": "To celebrate lesson and week completions"
+  "@types/canvas-confetti": "Types for canvas-confetti"
+
+images:
+  - path: "artifacts/ai-pm-course/public/images/hero-bg.png"
+    description: "Premium dark and moody abstract gradient mesh background in deep indigo and violet with soft, sophisticated light leaks. Minimalist, sleek, modern SaaS aesthetic."
+    aspect_ratio: "16:9"
+  - path: "artifacts/ai-pm-course/public/images/capstone-bg.png"
+    description: "Subtle geometric abstract background with glowing neon purple lines intersecting on a dark background, representing architecture and planning."
+    aspect_ratio: "16:9"
+
+notes:
+  - The API client is already generated in @workspace/api-client-react, so custom wrapper hooks will be used to manage cache invalidation seamlessly.
+  - Using framer-motion for high-end feel.
