@@ -17,6 +17,14 @@ const DEFAULT_JSON_ACCEPT = "application/json, application/problem+json";
 
 let _baseUrl: string | null = null;
 let _authTokenGetter: AuthTokenGetter | null = null;
+let _userId: string | null = null;
+
+/**
+ * Set the current user ID to include as X-User-Id header in every request.
+ */
+export function setUserId(userId: string | null): void {
+  _userId = userId;
+}
 
 /**
  * Set a base URL that is prepended to every relative request URL
@@ -353,6 +361,11 @@ export async function customFetch<T = unknown>(
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
+  }
+
+  // Attach per-user ID header for progress/notes/capstone isolation.
+  if (_userId && !headers.has("x-user-id")) {
+    headers.set("x-user-id", _userId);
   }
 
   const requestInfo = { method, url: resolveUrl(input) };

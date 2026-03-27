@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { COURSE_PHASES, COURSE_WEEKS, COURSE_LESSONS } from "@/lib/data";
 import { useProgress } from "@/hooks/use-progress";
+import { useUserContext } from "@/contexts/user-context";
 
 // Phase color tokens
 const PHASE_COLORS: Record<string, { label: string; dot: string; badge: string; activeBg: string; border: string }> = {
@@ -22,6 +23,11 @@ export function AppLayout({ children }: { children: ReactNode }) {
   const isLanding = location === "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const { profile } = useUserContext();
+
+  const displayName = profile?.name && profile.name.trim().length > 0 ? profile.name : "Learner";
+  const displayRole = profile?.role && profile.role.trim().length > 0 ? profile.role : "Student";
+  const initials = displayName.split(" ").map(w => w[0]?.toUpperCase() ?? "").slice(0, 2).join("") || "L";
 
   useEffect(() => { setIsMobileMenuOpen(false); }, [location]);
 
@@ -92,13 +98,13 @@ export function AppLayout({ children }: { children: ReactNode }) {
         {/* User Footer */}
         <div className="flex-shrink-0 px-3 py-3 border-t border-border">
           <div className="flex items-center justify-between px-2 py-2 rounded-xl hover:bg-muted/50 transition-colors">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center text-white text-xs font-bold shadow-sm">
-                JD
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center text-white text-xs font-bold shadow-sm flex-shrink-0">
+                {initials}
               </div>
               <div className="min-w-0">
-                <p className="text-sm font-semibold leading-tight">Jane Doe</p>
-                <p className="text-xs text-muted-foreground leading-tight">Pro Member</p>
+                <p className="text-sm font-semibold leading-tight truncate">{displayName}</p>
+                <p className="text-xs text-muted-foreground leading-tight truncate">{displayRole}</p>
               </div>
             </div>
             <button

@@ -3,10 +3,13 @@ import { useProgress } from "@/hooks/use-progress";
 import { COURSE_WEEKS, COURSE_LESSONS, TEMPLATES_DATA, TOOLS_DATA } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Flame, PlayCircle, Trophy, Target, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useUserContext } from "@/contexts/user-context";
 
 export default function Dashboard() {
   const { totalCompleted, data: progressData } = useProgress();
-  const totalLessons = 15;
+  const { profile } = useUserContext();
+  const displayName = profile?.name && profile.name.trim().length > 0 ? profile.name : "there";
+  const totalLessons = Object.keys(COURSE_LESSONS).length;
   const progressPercent = Math.round((totalCompleted / totalLessons) * 100);
 
   // Find next lesson
@@ -31,7 +34,7 @@ export default function Dashboard() {
             animate={{ opacity: 1, x: 0 }}
             className="text-3xl md:text-4xl font-display font-bold mb-2"
           >
-            Welcome back, Jane 👋
+            Welcome back, {displayName} 👋
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}

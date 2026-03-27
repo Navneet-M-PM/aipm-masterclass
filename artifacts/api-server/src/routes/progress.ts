@@ -1,14 +1,22 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
 import { lessonProgressTable } from "@workspace/db/schema";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 const router: IRouter = Router();
 
+function getUserId(req: any): string {
+  return (req.headers["x-user-id"] as string) || "default";
+}
+
 router.get("/progress", async (req, res) => {
   try {
-    const progress = await db.select().from(lessonProgressTable);
+    const userId = getUserId(req);
+    const progress = await db
+      .select()
+      .from(lessonProgressTable)
+      .where(eq(lessonProgressTable.userId, userId));
     res.json(progress);
   } catch (err) {
     req.log.error({ err }, "Failed to get progress");
@@ -30,12 +38,13 @@ router.post("/progress", async (req, res) => {
   }
 
   const { lessonId, completed, quizScore } = parsed.data;
+  const userId = getUserId(req);
 
   try {
     const existing = await db
       .select()
       .from(lessonProgressTable)
-      .where(eq(lessonProgressTable.lessonId, lessonId))
+      .where(and(eq(lessonProgressTable.userId, userId), eq(lessonProgressTable.lessonId, lessonId)))
       .limit(1);
 
     if (existing.length > 0) {
@@ -46,13 +55,14 @@ router.post("/progress", async (req, res) => {
           quizScore: quizScore ?? null,
           completedAt: completed ? new Date() : null,
         })
-        .where(eq(lessonProgressTable.lessonId, lessonId))
+        .where(and(eq(lessonProgressTable.userId, userId), eq(lessonProgressTable.lessonId, lessonId)))
         .returning();
       res.json(updated);
     } else {
       const [created] = await db
         .insert(lessonProgressTable)
         .values({
+          userId,
           lessonId,
           completed,
           quizScore: quizScore ?? null,

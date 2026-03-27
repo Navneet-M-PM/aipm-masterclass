@@ -14,6 +14,8 @@ import Capstone from "@/pages/capstone";
 import Templates from "@/pages/templates";
 import Tools from "@/pages/tools";
 import Interview from "@/pages/interview";
+import { OnboardingModal } from "@/components/onboarding-modal";
+import { UserProvider, useUserContext } from "@/contexts/user-context";
 
 const queryClient = new QueryClient();
 
@@ -36,14 +38,30 @@ function Router() {
   );
 }
 
+function AppInner() {
+  const { profile, loading, completeOnboarding } = useUserContext();
+  const showOnboarding = !loading && profile !== null && !profile.onboarded;
+
+  return (
+    <>
+      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <Router />
+      </WouterRouter>
+      {showOnboarding && (
+        <OnboardingModal onComplete={completeOnboarding} />
+      )}
+      <Toaster />
+    </>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
+        <UserProvider>
+          <AppInner />
+        </UserProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
