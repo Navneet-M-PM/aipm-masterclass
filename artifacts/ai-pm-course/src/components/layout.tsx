@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard, BookOpen, PenTool, LayoutTemplate, Box,
-  Menu, X, Sparkles, Moon, Sun, ChevronDown, TrendingUp, CheckCircle2, Circle
+  Menu, X, Sparkles, Moon, Sun, ChevronDown, TrendingUp, CheckCircle2, Circle, GraduationCap
 } from "lucide-react";
 import { COURSE_PHASES, COURSE_WEEKS, COURSE_LESSONS } from "@/lib/data";
 import { useProgress } from "@/hooks/use-progress";
@@ -174,6 +174,7 @@ function SidebarNav() {
   ];
 
   const resourceLinks = [
+    { href: "/interview", label: "Interview Prep", icon: GraduationCap },
     { href: "/templates", label: "Playbooks & Templates", icon: LayoutTemplate },
     { href: "/tools", label: "AI Tools Directory", icon: Box },
   ];

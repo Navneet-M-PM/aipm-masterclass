@@ -13,6 +13,7 @@ import LessonView from "@/pages/lesson";
 import Capstone from "@/pages/capstone";
 import Templates from "@/pages/templates";
 import Tools from "@/pages/tools";
+import Interview from "@/pages/interview";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/capstone" component={Capstone} />
         <Route path="/templates" component={Templates} />
         <Route path="/tools" component={Tools} />
+        <Route path="/interview" component={Interview} />
         <Route component={NotFound} />
       </Switch>
     </AppLayout>
