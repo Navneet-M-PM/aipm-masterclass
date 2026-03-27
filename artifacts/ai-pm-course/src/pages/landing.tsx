@@ -184,68 +184,131 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 function DashboardMockup() {
   return (
-    <div className="w-full h-full bg-background/95 rounded-xl overflow-hidden flex text-xs">
-      <div className="w-48 flex-shrink-0 bg-card border-r border-border p-3 flex flex-col gap-1">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-6 h-6 rounded-full bg-primary/20" />
-          <div className="h-2.5 w-20 bg-muted rounded" />
+    <div className="w-full h-full bg-[#0d1117] rounded-xl overflow-hidden flex text-xs select-none">
+      {/* Sidebar */}
+      <div className="w-52 flex-shrink-0 bg-[#0d1117] border-r border-white/5 flex flex-col">
+        {/* Logo */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
+          <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
+            <span className="text-white text-[8px] font-black">AI</span>
+          </div>
+          <span className="text-white text-[11px] font-bold tracking-tight">AI PM Course</span>
         </div>
-        {["Dashboard", "Curriculum", "Capstone Tracker"].map(item => (
-          <div key={item} className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-muted">
-            <div className="w-3 h-3 rounded bg-muted-foreground/30" />
-            <div className="h-2 flex-1 bg-muted-foreground/20 rounded" />
-          </div>
-        ))}
-        <div className="mt-3 border-t border-border pt-3">
-          <div className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mb-2 px-2">MY PROGRESS</div>
-          <div className="px-2 mb-3">
-            <div className="flex justify-between mb-1">
-              <span className="text-[10px] text-primary font-bold">32%</span>
-              <span className="text-[10px] text-muted-foreground">10 / 32</span>
-            </div>
-            <div className="h-1.5 bg-muted rounded-full">
-              <div className="h-full w-1/3 bg-primary rounded-full" />
-            </div>
-          </div>
-          <div className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mb-2 px-2">CURRICULUM</div>
-          {[{ label: "Foundations & AI Thinking", color: "bg-blue-400", done: true }, { label: "AI Product Design", color: "bg-emerald-400", done: true }, { label: "Building with AI", color: "bg-violet-400", done: false }].map(p => (
-            <div key={p.label} className="flex items-center gap-2 px-2 py-1.5">
-              <div className={`w-2 h-2 rounded-full flex-shrink-0 ${p.color}`} />
-              <div className="h-2 flex-1 bg-muted rounded" />
+
+        {/* Nav */}
+        <div className="flex flex-col gap-0.5 p-2 pt-3">
+          {[
+            { label: "Dashboard", active: true },
+            { label: "Curriculum", active: false },
+            { label: "Capstone Tracker", active: false },
+          ].map(item => (
+            <div key={item.label} className={`flex items-center gap-2 px-2.5 py-2 rounded-lg text-[10px] font-medium ${item.active ? "bg-blue-500/15 text-blue-400" : "text-white/40"}`}>
+              <div className={`w-1.5 h-1.5 rounded-full ${item.active ? "bg-blue-400" : "bg-white/20"}`} />
+              {item.label}
             </div>
           ))}
         </div>
-      </div>
-      <div className="flex-1 p-4 overflow-hidden">
-        <div className="mb-4">
-          <div className="h-3 w-48 bg-foreground/20 rounded mb-1" />
-          <div className="h-2 w-64 bg-muted rounded" />
-        </div>
-        <div className="grid grid-cols-2 gap-3 mb-4">
-          <div className="bg-card border border-primary/30 rounded-xl p-3">
-            <div className="text-[10px] text-primary font-semibold uppercase mb-2">UP NEXT · WEEK 6</div>
-            <div className="h-2.5 w-32 bg-foreground/20 rounded mb-1" />
-            <div className="h-2 w-28 bg-muted rounded mb-3" />
-            <div className="h-6 w-24 rounded-lg bg-primary/80" />
+
+        {/* Progress */}
+        <div className="px-3 pt-3 border-t border-white/5 mt-2">
+          <div className="text-[9px] text-white/30 font-semibold uppercase tracking-wider mb-2">My Progress</div>
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[11px] font-bold text-blue-400">32%</span>
+            <span className="text-[9px] text-white/30">10 / 32 lessons</span>
           </div>
-          <div className="bg-card border border-border rounded-xl p-3">
-            <div className="text-2xl font-black text-foreground">32%</div>
-            <div className="text-[10px] text-muted-foreground">Course Completion</div>
-            <div className="h-1.5 bg-muted rounded-full mt-2">
-              <div className="h-full w-1/3 bg-accent rounded-full" />
+          <div className="h-1.5 bg-white/5 rounded-full mb-3">
+            <div className="h-full w-1/3 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
+          </div>
+
+          <div className="text-[9px] text-white/30 font-semibold uppercase tracking-wider mb-2">Phases</div>
+          {[
+            { label: "Foundations", color: "bg-blue-400", done: true },
+            { label: "AI Product Design", color: "bg-emerald-400", done: true },
+            { label: "Building with AI", color: "bg-violet-400", done: false },
+            { label: "Scaling & Mastery", color: "bg-amber-400", done: false },
+          ].map(p => (
+            <div key={p.label} className="flex items-center gap-2 py-1">
+              <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${p.color} ${!p.done && "opacity-30"}`} />
+              <span className={`text-[9px] ${p.done ? "text-white/60" : "text-white/25"}`}>{p.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* User Footer */}
+        <div className="mt-auto p-3 border-t border-white/5">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white text-[8px] font-bold">S</div>
+            <div>
+              <div className="text-[9px] text-white/70 font-semibold">Sarah Chen</div>
+              <div className="text-[8px] text-white/30">Product Manager</div>
             </div>
           </div>
         </div>
-        <div className="bg-card border border-border rounded-xl p-3">
-          <div className="text-[10px] font-semibold text-foreground mb-2">Lesson Content: Prompt Engineering</div>
-          <div className="space-y-1.5">
-            {[100, 85, 95, 70, 90].map((w, i) => (
-              <div key={i} className="h-1.5 bg-muted rounded" style={{ width: `${w}%` }} />
-            ))}
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-hidden bg-[#080c12]">
+        {/* Header */}
+        <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between flex-shrink-0">
+          <div>
+            <div className="text-[12px] font-bold text-white">Welcome back, Sarah 👋</div>
+            <div className="text-[9px] text-white/35">Week 6 · Prompt Engineering at Scale</div>
           </div>
-          <div className="flex gap-2 mt-3">
-            <div className="h-5 w-16 bg-primary/20 rounded" />
-            <div className="h-5 w-12 bg-accent/20 rounded" />
+          <div className="flex items-center gap-1.5 bg-orange-500/10 border border-orange-500/20 text-orange-400 rounded-full px-2.5 py-1 text-[9px] font-bold">
+            🔥 4-day streak
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div className="p-4 flex flex-col gap-3 overflow-hidden">
+          <div className="grid grid-cols-3 gap-3">
+            {/* Up Next */}
+            <div className="col-span-2 bg-[#0d1117] border border-blue-500/20 rounded-xl p-3">
+              <div className="text-[8px] text-blue-400 font-bold uppercase tracking-wider mb-1.5">UP NEXT · WEEK 6</div>
+              <div className="text-[11px] font-bold text-white mb-0.5">Prompt Engineering at Scale</div>
+              <div className="text-[9px] text-white/40 mb-3">Chain-of-thought, few-shot patterns & production prompts</div>
+              <div className="flex items-center gap-2">
+                <div className="px-3 py-1.5 rounded-lg bg-blue-500 text-white text-[9px] font-semibold">Continue →</div>
+                <div className="text-[8px] text-white/30">45 min · Quiz included</div>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="bg-[#0d1117] border border-white/5 rounded-xl p-3 flex flex-col justify-between">
+              <div className="text-[22px] font-black text-white leading-none">32%</div>
+              <div className="text-[8px] text-white/35 mb-2">Course Complete</div>
+              <div className="h-1.5 bg-white/5 rounded-full">
+                <div className="h-full w-1/3 bg-gradient-to-r from-cyan-500 to-emerald-400 rounded-full" />
+              </div>
+            </div>
+          </div>
+
+          {/* Lesson Preview */}
+          <div className="bg-[#0d1117] border border-white/5 rounded-xl p-3 flex-1">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[10px] font-semibold text-white">L6 · Prompt Engineering at Scale</div>
+              <div className="text-[8px] px-2 py-0.5 rounded-full bg-violet-500/15 text-violet-400 font-semibold">In Progress</div>
+            </div>
+            <div className="space-y-1.5 mb-3">
+              {[
+                { text: "The anatomy of a production-grade prompt", done: true },
+                { text: "Chain-of-thought & few-shot patterns", done: true },
+                { text: "Temperature, top-p and creativity tradeoffs", done: false },
+                { text: "Prompt versioning and evaluation loops", done: false },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className={`w-3 h-3 rounded-full flex-shrink-0 flex items-center justify-center ${item.done ? "bg-emerald-500" : "border border-white/15"}`}>
+                    {item.done && <span className="text-white text-[7px]">✓</span>}
+                  </div>
+                  <span className={`text-[9px] ${item.done ? "text-white/60 line-through" : "text-white/45"}`}>{item.text}</span>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 pt-2 border-t border-white/5">
+              <div className="text-[8px] px-2 py-1 rounded-lg bg-blue-500/15 text-blue-400 font-medium">Take Quiz</div>
+              <div className="text-[8px] px-2 py-1 rounded-lg bg-white/5 text-white/40 font-medium">Add Note</div>
+              <div className="ml-auto text-[8px] text-white/25">Quiz score: 92/100</div>
+            </div>
           </div>
         </div>
       </div>
