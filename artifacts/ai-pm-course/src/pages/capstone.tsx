@@ -38,6 +38,22 @@ export default function Capstone() {
     updateCapstone({ data: form }, {
       onSuccess: () => {
         toast({ title: "Project saved", description: "Your capstone progress has been updated." });
+      },
+      onError: () => {
+        toast({ title: "Save failed", description: "Could not save your progress. Please try again.", variant: "destructive" });
+      }
+    });
+  };
+
+  const handleStageChange = (stage: string) => {
+    const updated = { ...form, currentStage: stage };
+    setForm(updated);
+    updateCapstone({ data: updated }, {
+      onSuccess: () => {
+        toast({ title: `Stage updated to ${stage}`, description: "Your progress has been saved." });
+      },
+      onError: () => {
+        toast({ title: "Save failed", description: "Could not update stage.", variant: "destructive" });
       }
     });
   };
@@ -83,7 +99,7 @@ export default function Capstone() {
               return (
                 <button
                   key={stage}
-                  onClick={() => setForm(f => ({ ...f, currentStage: stage }))}
+                  onClick={() => handleStageChange(stage)}
                   className={cn(
                     "flex-1 min-w-[120px] py-3 px-4 rounded-xl font-semibold text-sm transition-all border",
                     isActive 

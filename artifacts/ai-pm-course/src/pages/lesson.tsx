@@ -231,6 +231,19 @@ export default function LessonView() {
 
   const week = COURSE_WEEKS[lesson.weekId];
 
+  // Compute next lesson (within same week, or first lesson of next week)
+  const allWeekIds = Object.keys(COURSE_WEEKS);
+  const weekLessons: string[] = week?.lessons ?? [];
+  const lessonIdxInWeek = weekLessons.indexOf(lesson.id);
+  const nextLessonId: string | null =
+    lessonIdxInWeek >= 0 && lessonIdxInWeek < weekLessons.length - 1
+      ? weekLessons[lessonIdxInWeek + 1]
+      : (() => {
+          const weekIdx = allWeekIds.indexOf(lesson.weekId);
+          const nextWeekId = weekIdx >= 0 && weekIdx < allWeekIds.length - 1 ? allWeekIds[weekIdx + 1] : null;
+          return nextWeekId ? (COURSE_WEEKS[nextWeekId]?.lessons?.[0] ?? null) : null;
+        })();
+
   const handleComplete = () => {
     if (!completed) {
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#8b5cf6', '#a855f7', '#d946ef'] });
@@ -398,11 +411,26 @@ export default function LessonView() {
                 : <><div className="w-5 h-5 rounded-full border-2 border-current" /> Mark as Complete</>
               }
             </button>
-            {week && (
-              <Link href={`/week/${week.id}`} className="px-6 py-4 rounded-xl font-semibold bg-muted hover:bg-muted/80 transition-colors flex items-center gap-2">
-                Back to week <ArrowRight className="w-4 h-4" />
-              </Link>
-            )}
+            <div className="flex items-center gap-3">
+              {week && (
+                <Link href={`/week/${week.id}`} className="px-5 py-3.5 rounded-xl font-semibold bg-muted hover:bg-muted/80 transition-colors flex items-center gap-2 text-sm">
+                  Back to week
+                </Link>
+              )}
+              {nextLessonId && (
+                <Link
+                  href={`/lesson/${nextLessonId}`}
+                  className={cn(
+                    "px-6 py-3.5 rounded-xl font-bold text-sm transition-all duration-300 flex items-center gap-2",
+                    completed
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  )}
+                >
+                  Next Lesson <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

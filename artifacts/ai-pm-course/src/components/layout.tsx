@@ -66,12 +66,12 @@ export function AppLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen w-full flex bg-background text-foreground transition-colors duration-300 overflow-hidden">
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 glass-panel z-40 flex items-center justify-between px-4 border-b">
-        <div className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="font-display font-bold text-lg">AI PM Course</span>
-        </div>
+        </Link>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2">
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -83,12 +83,12 @@ export function AppLayout({ children }: { children: ReactNode }) {
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         {/* Logo */}
-        <div className="hidden lg:flex h-16 items-center px-4 border-b border-border gap-2.5 flex-shrink-0">
+        <Link href="/" className="hidden lg:flex h-16 items-center px-4 border-b border-border gap-2.5 flex-shrink-0 hover:bg-muted/40 transition-colors">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center shadow-md shadow-primary/20">
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <span className="font-display font-bold text-base tracking-tight">AI PM Course</span>
-        </div>
+        </Link>
 
         {/* Scrollable Nav */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
